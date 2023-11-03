@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-<<<<<<< HEAD
 import 'package:pas_mobile/common/routes/routes.dart';
-=======
-import 'package:pas_mobile/app/routes/routes.dart';
->>>>>>> 39ac158445c2740672d59e28508bfa1b78d79fd4
 
 void main() {
   runApp(const MyApp());
@@ -22,10 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       getPages: routes,
+      initialRoute: '/splash',
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 39ac158445c2740672d59e28508bfa1b78d79fd4
