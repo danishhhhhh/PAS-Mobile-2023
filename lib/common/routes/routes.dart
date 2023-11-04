@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/checkout_page/checkout_page_binding.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_view.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_binding.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_view.dart';
@@ -43,7 +44,7 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/event_purchashed',
-    page: () => const EventPurchasedPagePageView(),
+    page: () => const EventPurchasedPageView(),
     binding: EventPurchasedPageBinding(),
   ),
   GetPage(
@@ -54,7 +55,7 @@ List<GetPage> routes = [
   GetPage(
     name: '/checkout',
     page: () => const CheckoutPageView(),
-    binding: EventPurchasedPageBinding(),
+    binding: CheckoutPageBinding(),
   ),
 ];
 
