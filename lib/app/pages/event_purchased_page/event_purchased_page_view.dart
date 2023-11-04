@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EventPurchasedPageView extends StatelessWidget {
-  const EventPurchasedPageView({super.key});
+class DetailPageView extends StatelessWidget {
+  const DetailPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
