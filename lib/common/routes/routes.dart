@@ -6,6 +6,7 @@ import 'package:pas_mobile/app/pages/register_page/register_page_view.dart';
 import 'package:pas_mobile/app/pages/splash_screen_page/splash_screen_page_binding.dart';
 import 'package:pas_mobile/app/pages/splash_screen_page/splash_screen_page_view.dart';
 
+
 List<GetPage> routes = [
   GetPage(
     name: '/splash',
