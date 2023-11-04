@@ -23,3 +23,5 @@ List<GetPage> routes = [
     binding: RegisterPageBinding(),
   ),
 ];
+
+
