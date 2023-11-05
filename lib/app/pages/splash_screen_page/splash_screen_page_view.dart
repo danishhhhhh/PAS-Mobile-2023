@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class SplashScreenView extends StatelessWidget {
@@ -7,20 +8,25 @@ class SplashScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: ColorsBase.whiteBase,
       body: Center (
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget> [
-            Image.asset('assets/images/logoHarmonia.png'),//nanti aku cari tau lg
-            SizedBox(height: 20),
-            Text(
-              'Make your live sounding',
-              style: TextStyle(
-                fontFamily: "Montserrat",
-                fontSize: 15,
-                color: ColorsBase.orangeBase,
-                fontWeight: FontWeight.w600,
+           SvgPicture.asset(
+                   "assets/images/harmoni_logo.svg",
+                   width: 300,
+                 ),//nanti aku cari tau lg
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                'Make your live sounding',
+                style: TextStyle(
+                  fontFamily: "Montserrat",
+                  fontSize: 15,
+                  color: ColorsBase.orangeBase,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             )
           ],
