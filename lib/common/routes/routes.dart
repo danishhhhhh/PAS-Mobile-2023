@@ -22,6 +22,7 @@ List<GetPage> routes = [
     page: () => const RegisterPageView(),
     binding: RegisterPageBinding(),
   ),
+  
 ];
 
 
