@@ -11,14 +11,15 @@ class PaymentSelector extends StatelessWidget {
       required this.value});
 
   final CheckoutPageController controller = Get.put(CheckoutPageController());
-  final String image, name, value;
+  final String image, name;
+  final RxString value;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckoutPageController>(
       builder: (controller) {
         return InkWell(
-          onTap: () => controller.setOrderType(value),
+          onTap: () => controller.setOrderType(value.value),
           child: Row(
             children: [
               Image.asset(
@@ -29,19 +30,19 @@ class PaymentSelector extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   name,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700,
                       color: ColorsBase.purpleDarkBase,
                       fontSize: 14),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Radio(
-                value: value,
-                groupValue: controller.orderType,
-                onChanged: (String? value) {},
+                value: value.value,
+                groupValue: controller.orderType.value,
                 activeColor: ColorsBase.orangeBase,
+                onChanged: (val) {},
               ),
             ],
           ),

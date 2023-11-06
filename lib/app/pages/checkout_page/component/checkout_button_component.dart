@@ -29,17 +29,21 @@ class CheckoutButtonComponent extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(5),
-                  child: Image.asset(
-                    payment[int.parse(controller.orderType)].image,
-                    height: 24,
+                  child: Obx(() => Image.asset(
+                      payment[int.parse(controller.orderType.value)].image,
+                      height: 24,
+                    ),
                   ),
                 ),
-                Text(payment[int.parse(controller.orderType)].name,
+                Obx(() => Text(
+                    payment[int.parse(controller.orderType.value)].name,
                     style: const TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.w700,
                         color: ColorsBase.purpleDarkBase,
-                        fontSize: 14)),
+                        fontSize: 14),
+                  ),
+                ),
                 const Spacer(),
                 SizedBox(
                   height: height / 50,
@@ -50,11 +54,11 @@ class CheckoutButtonComponent extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(5),
+                const Padding(
+                  padding: EdgeInsets.all(5),
                   child: Text(
                     "\$$price",
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.w700,
                         color: ColorsBase.purpleDarkBase,
