@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';

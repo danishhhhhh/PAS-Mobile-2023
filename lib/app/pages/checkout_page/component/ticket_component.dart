@@ -4,7 +4,6 @@ import 'package:pas_mobile/common/theme/theme.dart';
 
 class TicketComponent extends StatelessWidget {
   const TicketComponent({super.key});
-
   final price = '100';
 
   @override
@@ -133,11 +132,11 @@ class TicketComponent extends StatelessWidget {
               GridView(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 3 / 2,
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 30),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 3 / 2,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 30,
+                ),
                 children: const [
                   TicketInfo(
                     image: 'assets/images/icons/user.svg',
@@ -165,8 +164,7 @@ class TicketComponent extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(20))),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
                 ),
               ),

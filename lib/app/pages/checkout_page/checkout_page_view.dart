@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pas_mobile/app/pages/checkout_page/component/checkout_button_component.dart';
 import 'package:pas_mobile/app/pages/checkout_page/component/payment_component.dart';
 import 'package:pas_mobile/app/pages/checkout_page/component/ticket_component.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
@@ -11,12 +12,12 @@ class CheckoutPageView extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       appBar: AppBar(backgroundColor: ColorsBase.whiteBase),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      body: const Padding(
+        padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            const SingleChildScrollView(
+            SingleChildScrollView(
               child: Column(
                 children: [
                   TicketComponent(),
@@ -24,31 +25,7 @@ class CheckoutPageView extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                SizedBox(
-                  width: double.maxFinite,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorsBase.orangeBase,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)
-                      )
-                    ),
-                    child: Text(
-                      "Checkout",
-                      style: TextStyle(
-                          fontFamily: "Montserrat",
-                          fontWeight: FontWeight.w700,
-                          color: ColorsBase.whiteBase,
-                          fontSize: 16),
-                    ),
-                  ),
-                )
-              ],
-            )
+            CheckoutButtonComponent(),
           ],
         ),
       ),
