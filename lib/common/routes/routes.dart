@@ -44,7 +44,7 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/event_purchashed',
-    page: () => const EventPurchasedPageView(),
+    page: () => EventPurchasedPageView(),
     binding: EventPurchasedPageBinding(),
   ),
   GetPage(
