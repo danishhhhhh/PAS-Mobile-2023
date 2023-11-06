@@ -1,60 +1,139 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class EventCardComponent extends StatelessWidget {
-  const EventCardComponent({super.key});
+  const EventCardComponent(
+      {super.key, required this.name, required this.image, required this.date});
+
+  final String name, image, date;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration:
-            const BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
-          BoxShadow(
-            color: ColorsBase.lightGreyBase,
-            offset: Offset(
-              5,
-              5,
-            ),
-            blurRadius: 10.0,
-            spreadRadius: 1,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      decoration: const BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
+        BoxShadow(
+          color: ColorsBase.lightGreyBase,
+          offset: Offset(
+            5,
+            5,
           ),
-        ]),
-        width: double.maxFinite,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+          blurRadius: 10,
+          spreadRadius: 1,
+        ),
+      ]),
+      width: double.maxFinite,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
               children: [
-                Text("Payment Successfull"),
-                Spacer(),
-                Icon(Icons.more_vert)
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      color: ColorsBase.lightGreenBase,
+                      border: Border.all(color: ColorsBase.greenBase, width: 1),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: const Text(
+                    "Payment Successful",
+                    style: TextStyle(
+                      color: ColorsBase.darkGreenBase,
+                      fontFamily: "Poppins",
+                      fontSize: 7,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                const Icon(
+                  Icons.more_vert,
+                  size: 16,
+                )
               ],
             ),
-            Divider(),
-            Row(
+          ),
+          const Divider(
+            height: 0,
+            color: ColorsBase.lightGreyBase,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("The Eras Tour Taylor Swift "),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        name,
+                        style: const TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                     Row(
                       children: [
-                        Icon(Icons.calendar_month),
-                        Text("28 Oktober 2022")
+                        const Icon(
+                          Icons.calendar_today,
+                          color: ColorsBase.greyBase,
+                          size: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5),
+                          child: Text(
+                            date,
+                            style: const TextStyle(
+                              fontFamily: "Poppins",
+                              color: ColorsBase.greyBase,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    Text("purchase on 28th Feb 2023"),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Text(
+                        "purchased on ${DateFormat("dd MMM yyyy").format(DateTime.now())}",
+                        style: const TextStyle(color: ColorsBase.greyBase),
+                      ),
+                    ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
-                  "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                  image,
                   width: 100,
                 ),
               ],
             ),
-            Text("E-Voucher"),
-          ],
-        ));
-    const Placeholder();
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Container(
+              decoration: BoxDecoration(
+                color: ColorsBase.orangeBase,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              padding: const EdgeInsets.all(7),
+              child: const Text(
+                "E-Voucher",
+                style: TextStyle(
+                  color: ColorsBase.whiteBase,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w700,
+                  fontSize: 10,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

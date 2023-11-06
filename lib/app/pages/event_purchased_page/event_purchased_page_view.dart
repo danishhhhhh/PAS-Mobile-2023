@@ -11,33 +11,43 @@ class EventPurchasedPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(EventData().event.length);
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
-          child: Column(
+          child: Stack(
+            alignment: Alignment.topCenter,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(15),
-                child: Text(
+              Padding(
+                padding: EdgeInsets.only(top:  height / 15),
+                child: ListView.builder(
+                  itemCount: EventData().event.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    return EventCardComponent(
+                      image: EventData().event[index].image_event,
+                      name: EventData().event[index].name_event,
+                      date: EventData().event[index].date_event,
+                    );
+                  },
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                color: ColorsBase.whiteBase,
+                width: double.maxFinite,
+                child: const Text(
+                  textAlign: TextAlign.center,
                   "Your Ticket Purchased",
                   style: TextStyle(
                     color: ColorsBase.purpleDarkBase,
-                    fontFamily: "Montserrat",
+                    fontFamily: "Poppins",
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 20,
                   ),
                 ),
-              ),
-              ListView.builder(
-                itemCount: EventData().event.length,
-                shrinkWrap: true,
-                itemBuilder: (BuildContext context, int index) {
-                  final product = EventData().event[index];
-                  return EventCardComponent();
-                },
               ),
             ],
           ),
