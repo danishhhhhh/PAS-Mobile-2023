@@ -8,3 +8,4 @@ class LoginPageView extends StatelessWidget {
     return const Scaffold();
   }
 }
+
