@@ -10,6 +10,7 @@ class EventCardComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       decoration: const BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
@@ -106,9 +107,12 @@ class EventCardComponent extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                Image.asset(
-                  image,
-                  width: 100,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.asset(
+                    image,
+                    width: width / 3.5,
+                  ),
                 ),
               ],
             ),
