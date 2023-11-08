@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:pas_mobile/common/theme/theme.dart';
 
 class BackButtonArrow extends StatelessWidget {
   const BackButtonArrow({super.key});
@@ -29,7 +29,7 @@ class BackButtonArrow extends StatelessWidget {
               child: const Icon(
                 Icons.arrow_back_ios,
                 size: 20,
-                color: Colors.white,
+                color: ColorsBase.greyBase,
               ),
             ),
           ),

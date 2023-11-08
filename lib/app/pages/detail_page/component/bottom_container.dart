@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:pas_mobile/app/pages/detail_page/widget/info_widget.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
