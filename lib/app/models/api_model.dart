@@ -4,9 +4,9 @@ TicketModel ticketModelFromJson(String str) =>
     TicketModel.fromJson(json.decode(str));
 
 class TicketModel {
-  TicketEmbedded embedded;
+  TicketEmbedded? embedded;
 
-  TicketModel({required this.embedded});
+  TicketModel({this.embedded});
 
   factory TicketModel.fromJson(Map<String, dynamic> json) =>
       TicketModel(embedded: TicketEmbedded.fromJson(json["_embedded"]));
