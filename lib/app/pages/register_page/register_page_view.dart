@@ -2,28 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RegisterPageView extends StatefulWidget {
+class RegisterPageView extends StatelessWidget {
   const RegisterPageView({super.key});
 
-  @override
-  State<RegisterPageView> createState() => _RegisterPageViewState();
-}
-
-class _RegisterPageViewState extends State<RegisterPageView> {
-  bool isPasswordVisible = false;
-
-  void togglePasswordVisibility() {
-    setState(() {
-      isPasswordVisible = !isPasswordVisible;
-    });
-  }
-
-  @override
+ 
+ @override
   Widget build(BuildContext context) {
-    final TextEditingController usernameController = TextEditingController();
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
+  final TextEditingController usernameController = new TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
+  
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: Center(
@@ -67,17 +55,15 @@ class _RegisterPageViewState extends State<RegisterPageView> {
                     ),
                   ),
                   SizedBox(height: 80),
-                  _buildTextField(usernameController, "Username", Icons.person),
+                  _buildTextField("Usename", Icons.person, false, usernameController),
                   SizedBox(height: 20),
-                  _buildTextField(emailController, "Email", Icons.email),
+                  _buildTextField("Email", Icons.email, false, emailController),
                   SizedBox(height: 20),
-                  _buildTextField(
-                      passwordController, "Password", Icons.lock,
-                      isPasswordVisible: isPasswordVisible),
-                  SizedBox(height: 60),
+                  _buildTextField("Password", Icons.lock, true, passwordController),
+                   SizedBox(height: 60),
                   _buildLoginButton(),
                   SizedBox(height: 100),
-                  _buildSignInText(),
+                  _buildSignInText()
                 ],
               ),
             ),
@@ -87,34 +73,28 @@ class _RegisterPageViewState extends State<RegisterPageView> {
     );
   }
 
-  Widget _buildTextField(TextEditingController controller, String hintText,
-      IconData icon, {bool isPasswordVisible = false}) {
+  Widget _buildTextField(String hintText, IconData icon, bool isPass, TextEditingController controller) {
     return Container(
-      margin: const EdgeInsets.only(left: 60, right: 60),
+      margin: const EdgeInsets.only(left: 60, right: 60), 
       child: TextField(
         controller: controller,
-        obscureText: isPasswordVisible,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
           hintText: hintText,
-          suffixIcon: InkWell(
-            onTap: togglePasswordVisibility,
-            child: Icon(
-              isPasswordVisible ? Icons.visibility_off : Icons.visibility,
-              color: ColorsBase.orangeBase,
-            ),
-          ),
-          icon: Icon(icon, color: ColorsBase.orangeBase),
+          suffixIcon: isPass ? Icon(Icons.remove_red_eye, color: ColorsBase.orangeBase,) : null,
+          icon: Icon(icon, color: ColorsBase.orangeBase,),
           labelStyle: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 14,
-              color: ColorsBase.blackBase,
-              fontWeight: FontWeight.w600),
+            fontFamily: "Poppins",
+            fontSize: 14,
+            color: ColorsBase.blackBase,
+            fontWeight: FontWeight.w600
+          ),
           hintStyle: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 14,
-              color: ColorsBase.blackBase,
-              fontWeight: FontWeight.w400),
+            fontFamily: "Poppins",
+            fontSize: 14,
+            color: ColorsBase.blackBase,
+            fontWeight: FontWeight.w400
+          ),
         ),
       ),
     );
@@ -128,12 +108,11 @@ class _RegisterPageViewState extends State<RegisterPageView> {
       child: ElevatedButton(
         onPressed: () {},
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all<Color>(ColorsBase.orangeBase),
+          backgroundColor: MaterialStateProperty.all<Color>(ColorsBase.orangeBase),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           SizedBox(width: 10), 
           Text('Sign Up', style: TextStyle(
             color: ColorsBase.whiteBase,
