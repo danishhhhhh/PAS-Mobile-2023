@@ -32,6 +32,8 @@ class DetailPageView extends StatelessWidget {
                     ),
                     BottomContainer(
                       eventName: controller.data.value.embedded!.events[0].name,
+                      eventPromoter: controller
+                          .data.value.embedded!.events[0].promoter.name,
                     ),
                     BackButtonArrow(),
                     Align(
