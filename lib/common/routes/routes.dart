@@ -32,6 +32,7 @@ List<GetPage> routes = [
     page: () => const RegisterPageView(),
     binding: RegisterPageBinding(),
   ),
+
   GetPage(
     name: '/home',
     page: () => const HomePageView(),
@@ -57,6 +58,7 @@ List<GetPage> routes = [
     page: () => const CheckoutPageView(),
     binding: CheckoutPageBinding(),
   ),
+
 ];
 
 

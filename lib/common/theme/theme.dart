@@ -13,3 +13,4 @@ class ColorsBase {
   static const Color greenBase = Color(0xFF85FF7A);
   static const Color darkGreenBase = Color(0xFF4CAF50);
 }
+
