@@ -17,6 +17,8 @@ class DetailPageView extends StatelessWidget {
     final String eventImageURL =
         controller.data.value.embedded!.events[0].images[0].url;
     final String eventName = controller.data.value.embedded!.events[0].name;
+    final String eventPromoter = controller
+        .data.value.embedded!.events[0].promoter.name;
     final String eventVenue =
         controller.data.value.embedded!.events[0].embedded.venues[0].name;
     return Scaffold(
@@ -37,8 +39,7 @@ class DetailPageView extends StatelessWidget {
                     ),
                     BottomContainer(
                       eventName: eventName,
-                      eventPromoter: controller
-                          .data.value.embedded!.events[0].promoter.name,
+                      eventPromoter: eventPromoter,
                       eventVenue: eventVenue,
                       eventDate: controller
                           .data.value.embedded!.events[0].dates.start.localDate,
