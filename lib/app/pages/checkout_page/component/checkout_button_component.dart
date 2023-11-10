@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pas_mobile/app/data/event_data.dart';
 import 'package:pas_mobile/app/data/payment_data.dart';
+import 'package:pas_mobile/app/models/event_model.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
@@ -28,13 +30,15 @@ class CheckoutButtonComponent extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(5),
-                  child: Obx(() => Image.asset(
+                  child: Obx(
+                    () => Image.asset(
                       payment[int.parse(controller.orderType.value)].image,
                       height: 24,
                     ),
                   ),
                 ),
-                Obx(() => Text(
+                Obx(
+                  () => Text(
                     payment[int.parse(controller.orderType.value)].name,
                     style: const TextStyle(
                         fontFamily: "Montserrat",
@@ -71,7 +75,16 @@ class CheckoutButtonComponent extends StatelessWidget {
         SizedBox(
           width: double.maxFinite,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              addEvent(
+                EventModel(
+                  name_event: controller.argumentData["eventName"],
+                  image_event: controller.argumentData["eventImage"],
+                  date_event: controller.argumentData["eventDate"],
+                ),
+              );
+              Get.toNamed("/event_purchashed");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: ColorsBase.orangeBase,
                 shape: RoundedRectangleBorder(
