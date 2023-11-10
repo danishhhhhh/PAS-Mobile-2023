@@ -40,6 +40,8 @@ class DetailPageView extends StatelessWidget {
                           .data.value.embedded!.events[0].dates.start.localDate,
                       eventTime: controller
                           .data.value.embedded!.events[0].dates.start.localTime,
+                      eventInfo: controller
+                          .data.value.embedded!.events[0].info ?? "No Information for this event",
                     ),
                     BackButtonArrow(),
                     Align(
