@@ -10,6 +10,7 @@ class ColorsBase {
   static const Color greyBase = Color(0xFF888888);
   static const Color redBase = Color(0xFFE96A6A);
   static const Color lightGreenBase = Color(0xFFE1FFE2);
+  static const Color greenBase = Color(0xFF85FF7A);
   static const Color darkGreenBase = Color(0xFF4CAF50);
 }
 
