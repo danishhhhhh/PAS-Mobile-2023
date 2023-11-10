@@ -14,8 +14,7 @@ class DetailPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     final DetailPageController controller = Get.put(DetailPageController());
-    final String eventImageURL = controller.data.value.embedded!.events[0].images[0].url;
-    final String eventName = controller.data.value.embedded!.events[0].name;
+    final String imageURL = controller.data.value.embedded!.events[0].images[0].url;
     return Scaffold(
       body: SafeArea(
         child: Obx(
@@ -28,12 +27,12 @@ class DetailPageView extends StatelessWidget {
                     SizedBox(
                       height: height * 0.4,
                       child: Image.network(
-                        eventImageURL,
+                        imageURL,
                         fit: BoxFit.cover,
                       ),
                     ),
                     BottomContainer(
-                      eventName: eventName,
+                      eventName: controller.data.value.embedded!.events[0].name,
                       eventPromoter: controller
                           .data.value.embedded!.events[0].promoter.name,
                       eventVenue: controller
