@@ -18,10 +18,8 @@ class DetailPageController extends GetxController {
     final response = await http.get(Uri.parse(
         "https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&apikey=dAJ1FLpQoDkLO5zmA8AzEqZtysAjBzhb"));
     if (response.statusCode == 200) {
-      var r = jsonDecode(response.body);
-      data.value = TicketModel.fromJson(r);
-      String event = data.value.embedded!.events[0].name;
-      print("halo: ${event}");
+      var responses = jsonDecode(response.body);
+      data.value = TicketModel.fromJson(responses);
       isLoading.value = false;
     } else {
       print("status code : ${response.statusCode.toString()}");
