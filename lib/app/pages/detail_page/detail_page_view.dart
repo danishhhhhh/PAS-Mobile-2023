@@ -12,7 +12,10 @@ class DetailPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height;
     final DetailPageController controller = Get.put(DetailPageController());
     final String eventImageURL =
         controller.data.value.embedded!.events[0].images[0].url;
@@ -21,41 +24,44 @@ class DetailPageView extends StatelessWidget {
         .data.value.embedded!.events[0].promoter.name;
     final String eventVenue =
         controller.data.value.embedded!.events[0].embedded.venues[0].name;
+    final String eventDate =
+        controller
+            .data.value.embedded!.events[0].dates.start.localDate;
     return Scaffold(
       body: SafeArea(
         child: Obx(
-          () => controller.isLoading.value
+              () =>
+          controller.isLoading.value
               ? const Center(
-                  child: CircularProgressIndicator(),
-                )
+            child: CircularProgressIndicator(),
+          )
               : Stack(
-                  children: [
-                    SizedBox(
-                      height: height * 0.4,
-                      child: Image.network(
-                        eventImageURL,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    BottomContainer(
-                      eventName: eventName,
-                      eventPromoter: eventPromoter,
-                      eventVenue: eventVenue,
-                      eventDate: controller
-                          .data.value.embedded!.events[0].dates.start.localDate,
-                      eventTime: controller
-                          .data.value.embedded!.events[0].dates.start.localTime,
-                      eventInfo:
-                          controller.data.value.embedded!.events[0].info ??
-                              "No Information for this event",
-                    ),
-                    const BackButtonArrow(),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: PurchasedButton(),
-                    ),
-                  ],
+            children: [
+              SizedBox(
+                height: height * 0.4,
+                child: Image.network(
+                  eventImageURL,
+                  fit: BoxFit.cover,
                 ),
+              ),
+              BottomContainer(
+                eventName: eventName,
+                eventPromoter: eventPromoter,
+                eventVenue: eventVenue,
+                eventDate: eventDate,
+                eventTime: controller
+                  .data.value.embedded!.events[0].dates.start.localTime,
+                eventInfo:
+                controller.data.value.embedded!.events[0].info ??
+                    "No Information for this event",
+              ),
+              const BackButtonArrow(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: PurchasedButton(),
+              ),
+            ],
+          ),
         ),
       ),
     );
