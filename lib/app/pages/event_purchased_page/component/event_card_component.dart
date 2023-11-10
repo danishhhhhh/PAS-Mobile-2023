@@ -109,7 +109,7 @@ class EventCardComponent extends StatelessWidget {
                 const Spacer(),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5),
-                  child: Image.asset(
+                  child: Image.network(
                     image,
                     width: width / 3.5,
                   ),

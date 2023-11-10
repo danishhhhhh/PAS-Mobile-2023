@@ -23,13 +23,13 @@ class EventPurchasedPageView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top:  height / 15),
                 child: ListView.builder(
-                  itemCount: EventData().event.length,
+                  itemCount: event_purchased.length,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
                     return EventCardComponent(
-                      image: EventData().event[index].image_event,
-                      name: EventData().event[index].name_event,
-                      date: EventData().event[index].date_event,
+                      image: event_purchased[index].image_event,
+                      name: event_purchased[index].name_event,
+                      date: event_purchased[index].date_event,
                     );
                   },
                 ),
