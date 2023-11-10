@@ -23,8 +23,6 @@ class DetailPageView extends StatelessWidget {
         controller.data.value.embedded!.events[0].embedded.venues[0].name;
     final String eventDate =
         controller.data.value.embedded!.events[0].dates.start.localDate;
-    final String eventTime =
-        controller.data.value.embedded!.events[0].dates.start.localTime;
     return Scaffold(
       body: SafeArea(
         child: Obx(
@@ -46,7 +44,8 @@ class DetailPageView extends StatelessWidget {
                       eventPromoter: eventPromoter,
                       eventVenue: eventVenue,
                       eventDate: eventDate,
-                      eventTime: eventTime,
+                      eventTime: controller
+                          .data.value.embedded!.events[0].dates.start.localTime,
                       eventInfo:
                           controller.data.value.embedded!.events[0].info ??
                               "No Information for this event",
