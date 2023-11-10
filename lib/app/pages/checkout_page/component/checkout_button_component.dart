@@ -12,7 +12,6 @@ class CheckoutButtonComponent extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var payment = PaymentData().payment;
     final CheckoutPageController controller = Get.put(CheckoutPageController());
-    const price = '100';
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -54,10 +53,10 @@ class CheckoutButtonComponent extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(5),
                   child: Text(
-                    "\$$price",
+                    "\$${controller.argumentData['eventPrice']}",
                     style: TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.w700,

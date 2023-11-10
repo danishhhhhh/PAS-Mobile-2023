@@ -46,9 +46,25 @@ class DetailPageView extends StatelessWidget {
                               "No Information for this event",
                     ),
                     const BackButtonArrow(),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: PurchasedButton(),
+                    Obx(
+                      () => Align(
+                        alignment: Alignment.bottomCenter,
+                        child: PurchasedButton(
+                          eventName:
+                              controller.data.value.embedded!.events[0].name,
+                          eventImage: controller
+                              .data.value.embedded!.events[0].images[0].url,
+                          eventVenue: controller.data.value.embedded!.events[0]
+                              .embedded.venues[0].name,
+                          eventDate: controller.data.value.embedded!.events[0]
+                              .dates.start.localDate,
+                          eventTime: controller.data.value.embedded!.events[0]
+                              .dates.start.localTime,
+                          eventPrice: controller.data.value.embedded!.events[0]
+                              .priceRanges![0].min
+                              .toString(),
+                        ),
+                      ),
                     ),
                   ],
                 ),

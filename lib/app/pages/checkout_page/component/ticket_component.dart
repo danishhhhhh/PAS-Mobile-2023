@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
@@ -9,6 +11,7 @@ class TicketComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    final CheckoutPageController controller = Get.put(CheckoutPageController());
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -25,8 +28,8 @@ class TicketComponent extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  Image.asset(
-                    "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                  Image.network(
+                    controller.argumentData['eventImage'],
                     fit: BoxFit.cover,
                     width: double.maxFinite,
                   ),
@@ -44,11 +47,11 @@ class TicketComponent extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
+                      controller.argumentData['eventName'],
                       textAlign: TextAlign.start,
-                      "P!NK: Summer Carnival 2023",
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w700,
@@ -137,22 +140,22 @@ class TicketComponent extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 30,
                 ),
-                children: const [
+                children: [
                   TicketInfo(
                     image: 'assets/images/icons/user.svg',
                     text: "Qwerty",
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/map_pointer.svg',
-                    text: "Globe Life Field",
+                    text: controller.argumentData['eventVenue'],
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/calendar.svg',
-                    text: "March 9, 2023",
+                    text: controller.argumentData['eventDate'],
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/clock.svg',
-                    text: "2:00 PM",
+                    text: controller.argumentData['eventTime'],
                   ),
                 ],
               ),
@@ -182,7 +185,7 @@ class TicketComponent extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      "\$ $price",
+                      "\$ ${controller.argumentData['eventPrice']}",
                       style: const TextStyle(
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
