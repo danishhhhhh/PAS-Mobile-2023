@@ -18,17 +18,21 @@ class DetailPageView extends StatelessWidget {
       body: SafeArea(
         child: Obx(
           () => controller.isLoading.value
-              ? const CircularProgressIndicator()
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
               : Stack(
                   children: [
                     SizedBox(
                       height: height * 0.4,
                       child: Image.network(
-                        controller.test.value.embedded!.events[0].images[0].url,
+                        controller.data.value.embedded!.events[0].images[0].url,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    BottomContainer(),
+                    BottomContainer(
+                      eventName: controller.data.value.embedded!.events[0].name,
+                    ),
                     BackButtonArrow(),
                     Align(
                       alignment: Alignment.bottomCenter,
