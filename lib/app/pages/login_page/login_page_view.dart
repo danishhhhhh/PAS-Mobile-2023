@@ -56,11 +56,20 @@ class LoginPageView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  TextFieldSignIn(textEditingController: emailTextEditimgController, hintText: "Email", icon: Icons.email, isPass: false),
+                  TextFieldSignIn(
+                      textEditingController: emailTextEditimgController,
+                      hintText: "Email",
+                      icon: Icons.email,
+                      isPass: false),
                   SizedBox(height: 10),
-                  TextFieldSignIn(textEditingController: passwordTextEditimgController, hintText: "Password", icon: Icons.lock, isPass: true),
+                  TextFieldSignIn(
+                      textEditingController: passwordTextEditimgController,
+                      hintText: "Password",
+                      icon: Icons.lock,
+                      isPass: true),
                   SizedBox(height: 25),
-                  SignInButton(emailTextEditing: emailTextEditimgController, passwordTextEditing: passwordTextEditimgController,),
+                  SignInButton(emailTextEditing: emailTextEditimgController,
+                    passwordTextEditing: passwordTextEditimgController,),
                   SizedBox(height: 10),
                   GoogleSignInButton(),
                 ],
@@ -71,38 +80,6 @@ class LoginPageView extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hintText, IconData icon, bool isPass) {
-    return Container(
-      margin: const EdgeInsets.only(left: 60, right: 60),
-      child: TextField(
-        decoration: InputDecoration(
-          border: UnderlineInputBorder(),
-          hintText: hintText,
-          suffixIcon: isPass
-              ? Icon(
-                  Icons.remove_red_eye,
-                  color: ColorsBase.orangeBase,
-                )
-              : null,
-          icon: Icon(
-            icon,
-            color: ColorsBase.orangeBase,
-          ),
-          labelStyle: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 14,
-              color: ColorsBase.blackBase,
-              fontWeight: FontWeight.w600),
-          hintStyle: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 14,
-              color: ColorsBase.blackBase,
-              fontWeight: FontWeight.w400),
         ),
       ),
     );

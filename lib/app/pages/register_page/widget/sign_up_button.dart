@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class SignInButton extends StatelessWidget {
-  const SignInButton({super.key, required this.emailTextEditing, required this.passwordTextEditing});
+class SignUpButton extends StatelessWidget {
+  const SignUpButton({super.key, required this.usernameTextEditing, required this.emailTextEditing, required this.passwordTextEditing});
 
-  final TextEditingController emailTextEditing, passwordTextEditing;
+  final TextEditingController usernameTextEditing, emailTextEditing, passwordTextEditing;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,14 @@ class SignInButton extends StatelessWidget {
           print("email: ${emailTextEditing.text} : pass: ${passwordTextEditing.text}");
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorsBase.purpleDarkBase
+          backgroundColor: ColorsBase.orangeBase
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Sign In',
+            Text('Sign Up',
                 style: TextStyle(
-                    color: ColorsBase.whiteBase,
+                    color: ColorsBase.purpleDarkBase,
                     fontFamily: "Poppins",
                     fontWeight: FontWeight.w600,
                     fontSize: 14)),
