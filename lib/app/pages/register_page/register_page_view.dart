@@ -1,152 +1,97 @@
 import 'package:flutter/material.dart';
+import 'package:pas_mobile/app/pages/login_page/component/dont_have_account_component.dart';
+import 'package:pas_mobile/app/pages/login_page/widget/text_field.dart';
+import 'package:pas_mobile/app/pages/register_page/component/already_have_account_component.dart';
+import 'package:pas_mobile/app/pages/register_page/widget/sign_up_button.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RegisterPageView extends StatelessWidget {
   const RegisterPageView({super.key});
 
- 
- @override
+  @override
   Widget build(BuildContext context) {
-  final TextEditingController usernameController = new TextEditingController();
-  final TextEditingController emailController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
-  
+    final TextEditingController usernameTextEditingController =
+        TextEditingController();
+    final TextEditingController emailTextEditingController =
+        TextEditingController();
+    final TextEditingController passwordTextEditingController =
+        TextEditingController();
+
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 50),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                height: 50,
-                width: 180,
-                margin: EdgeInsets.only(bottom: 100),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(25),
                 child: SvgPicture.asset(
                   "assets/images/harmoni_logo.svg",
                   width: 180,
                 ),
               ),
-            ),
-            Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 50),
+                child: Column(
+                  children: [
+                    Text(
+                      'Let’s Join Us!',
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 32,
+                        fontWeight: FontWeight.w600,
+                        color: ColorsBase.purpleDarkBase,
+                      ),
+                    ),
+                    Text(
+                      'Please enter your details',
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                        color: ColorsBase.blackBase,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Column(
                 children: [
-                  Text(
-                    "Let's Join Us!",
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 32,
-                      fontWeight: FontWeight.w600,
-                      color: ColorsBase.purpleDarkBase,
-                    ),
+                  TextFieldSignIn(
+                      textEditingController: usernameTextEditingController,
+                      hintText: "Username",
+                      icon: Icons.person,
+                      isPass: false),
+                  SizedBox(height: 10),
+                  TextFieldSignIn(
+                      textEditingController: emailTextEditingController,
+                      hintText: "Email",
+                      icon: Icons.email,
+                      isPass: false),
+                  SizedBox(height: 10),
+                  TextFieldSignIn(
+                      textEditingController: passwordTextEditingController,
+                      hintText: "Password",
+                      icon: Icons.lock,
+                      isPass: true),
+                  SizedBox(height: 25),
+                  SignUpButton(
+                    emailTextEditing: emailTextEditingController,
+                    passwordTextEditing: passwordTextEditingController,
+                    usernameTextEditing: usernameTextEditingController,
                   ),
-                  Text(
-                    'Please enter your details',
-                    style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                      color: ColorsBase.blackBase,
-                    ),
-                  ),
-                  SizedBox(height: 80),
-                  _buildTextField("Usename", Icons.person, false, usernameController),
-                  SizedBox(height: 20),
-                  _buildTextField("Email", Icons.email, false, emailController),
-                  SizedBox(height: 20),
-                  _buildTextField("Password", Icons.lock, true, passwordController),
-                   SizedBox(height: 60),
-                  _buildLoginButton(),
-                  SizedBox(height: 100),
-                  _buildSignInText()
                 ],
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField(String hintText, IconData icon, bool isPass, TextEditingController controller) {
-    return Container(
-      margin: const EdgeInsets.only(left: 60, right: 60), 
-      child: TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          border: UnderlineInputBorder(),
-          hintText: hintText,
-          suffixIcon: isPass ? Icon(Icons.remove_red_eye, color: ColorsBase.orangeBase,) : null,
-          icon: Icon(icon, color: ColorsBase.orangeBase,),
-          labelStyle: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 14,
-            color: ColorsBase.blackBase,
-            fontWeight: FontWeight.w600
-          ),
-          hintStyle: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 14,
-            color: ColorsBase.blackBase,
-            fontWeight: FontWeight.w400
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 50),
+                child: AlreadyHaveAccountComponent(),
+              )
+            ],
           ),
         ),
       ),
     );
   }
-
-  Widget _buildLoginButton() {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 60),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(ColorsBase.orangeBase),
-        ),
-        child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(width: 10), 
-          Text('Sign Up', style: TextStyle(
-            color: ColorsBase.whiteBase,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-            fontSize: 14
-            )
-          ),
-        ],
-      ),
-      ),
-    );
-  }
-
- Widget _buildSignInText() {
-  return RichText(
-    text: TextSpan(
-      style: TextStyle(
-        fontFamily: "Montserrat",
-        fontSize: 12,
-        fontWeight: FontWeight.w300,
-        color: ColorsBase.blackBase,
-      ),
-      children: <TextSpan>[
-        TextSpan(text: "Already have an account? "),
-        TextSpan(
-          text: "Sign In",
-          style: TextStyle(
-            color: ColorsBase.blackBase, 
-            fontWeight: FontWeight.w600, 
-          ),
-        ),
-      ],
-    ),
-  );
-}
 }
