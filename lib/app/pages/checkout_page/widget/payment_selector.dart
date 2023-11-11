@@ -17,6 +17,7 @@ class PaymentSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckoutPageController>(
+
       builder: (controller) {
         return InkWell(
           onTap: () => controller.setOrderType(value.value),
