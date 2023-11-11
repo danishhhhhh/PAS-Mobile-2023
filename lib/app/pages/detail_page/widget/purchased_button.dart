@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class PurchasedButton extends StatelessWidget {
@@ -16,6 +17,7 @@ class PurchasedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DetailPageController controller = Get.put(DetailPageController());
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       width: double.maxFinite,
