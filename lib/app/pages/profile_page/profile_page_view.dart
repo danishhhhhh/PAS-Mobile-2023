@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pas_mobile/common/theme/theme.dart';
 
 class ProfilePageView extends StatelessWidget {
   const ProfilePageView({super.key});
