@@ -56,13 +56,13 @@ class LoginPageView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  TextFieldSignIn(
+                  TextFieldLogIn(
                       textEditingController: emailTextEditimgController,
                       hintText: "Email",
                       icon: Icons.email,
                       isPass: false),
                   SizedBox(height: 10),
-                  TextFieldSignIn(
+                  TextFieldLogIn(
                       textEditingController: passwordTextEditimgController,
                       hintText: "Password",
                       icon: Icons.lock,

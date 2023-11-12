@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/login_page/login_page_controller.dart';
-import 'package:pas_mobile/app/pages/register_page/register_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class TextFieldSignIn extends GetView<RegisterPageController> {
-  const TextFieldSignIn(
+class TextFieldLogIn extends GetView<LoginPageController> {
+  const TextFieldLogIn(
       {super.key,
       required this.textEditingController,
       required this.hintText,
