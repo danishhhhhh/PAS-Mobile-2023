@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginPageController extends GetxController {
   RxBool isObsecure = true.obs;
@@ -18,8 +19,12 @@ class LoginPageController extends GetxController {
       },
     );
     if (response.statusCode == 200) {
+      Map<String, dynamic> jsonResponse = json.decode(response.body);
+      bool status = jsonResponse['status'];
+      if(status){
+        Get.toNamed("/detail");
+      }
       successfulLogin.value = true;
-      print("success");
     } else {
       successfulLogin.value = false;
       print("status code : ${response.statusCode.toString()}");

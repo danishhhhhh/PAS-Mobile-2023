@@ -12,7 +12,9 @@ class GoogleSignInButton extends StatelessWidget {
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+
+        },
         style: ButtonStyle(
           backgroundColor:
           MaterialStateProperty.all<Color>(ColorsBase.lightGreyBase),
