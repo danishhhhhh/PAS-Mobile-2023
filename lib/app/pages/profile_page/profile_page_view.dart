@@ -3,7 +3,6 @@ import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/settings_widget.dart';
 
-
 class ProfilePageView extends StatelessWidget {
 const ProfilePageView({super.key});
 
