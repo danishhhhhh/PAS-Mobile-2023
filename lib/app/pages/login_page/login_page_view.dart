@@ -11,7 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class LoginPageView extends GetView<LoginPageController> {
   const LoginPageView({super.key});
 
-  @override
+   @override
   Widget build(BuildContext context) {
     final TextEditingController emailTextEditimgController = TextEditingController();
     final TextEditingController passwordTextEditimgController = TextEditingController();
