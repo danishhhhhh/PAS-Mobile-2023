@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/login_page/component/dont_have_account_component.dart';
 import 'package:pas_mobile/app/pages/login_page/widget/text_field.dart';
 import 'package:pas_mobile/app/pages/register_page/component/already_have_account_component.dart';
+import 'package:pas_mobile/app/pages/register_page/register_page_controller.dart';
 import 'package:pas_mobile/app/pages/register_page/widget/sign_up_button.dart';
 import 'package:pas_mobile/app/pages/register_page/widget/text_field.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RegisterPageView extends StatelessWidget {
+class RegisterPageView extends GetView<RegisterPageController> {
   const RegisterPageView({super.key});
 
   @override
@@ -77,6 +79,11 @@ class RegisterPageView extends StatelessWidget {
                       hintText: "Password",
                       icon: Icons.lock,
                       isPass: true),
+                  Obx(() => controller.successfulLogin.value ? Container() : Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(controller.message.value,
+                      style: TextStyle(color: ColorsBase.redBase, fontFamily: "Poppins", fontSize: 12),),
+                  ),),
                   SizedBox(height: 25),
                   SignUpButton(
                     emailTextEditing: emailTextEditingController,
