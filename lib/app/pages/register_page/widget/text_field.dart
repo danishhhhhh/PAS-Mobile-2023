@@ -30,12 +30,12 @@ class TextFieldSignIn extends GetView<RegisterPageController> {
           decoration: InputDecoration(
             focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(
-                    color: controller.successfulLogin.value
+                    color: controller.successfulRegister.value
                         ? ColorsBase.blackBase
                         : ColorsBase.redBase)),
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                  color: controller.successfulLogin.value
+                  color: controller.successfulRegister.value
                       ? ColorsBase.blackBase
                       : ColorsBase.redBase),
             ),
@@ -63,7 +63,7 @@ class TextFieldSignIn extends GetView<RegisterPageController> {
           style: TextStyle(
               fontFamily: "Poppins",
               fontSize: 14,
-              color: controller.successfulLogin.value
+              color: controller.successfulRegister.value
                   ? ColorsBase.blackBase
                   : ColorsBase.redBase),
         ),

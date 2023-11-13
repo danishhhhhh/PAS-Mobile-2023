@@ -5,7 +5,7 @@ import 'dart:convert';
 class RegisterPageController extends GetxController {
   RxBool isObsecure = true.obs;
   RxBool isObsecureFalse = false.obs;
-  RxBool successfulLogin = true.obs;
+  RxBool successfulRegister = true.obs;
   RxString message = "".obs;
 
   signin(String username, String email, String password) async {
@@ -27,14 +27,13 @@ class RegisterPageController extends GetxController {
       bool status = jsonResponse['status'];
       String message = jsonResponse['message'];
       if(status){
-        this.message.value = message;
-        successfulLogin.value = true;
+        successfulRegister.value = true;
       } else {
         this.message.value = message;
-        successfulLogin.value = false;
+        successfulRegister.value = false;
       }
     } else {
-      successfulLogin.value = false;
+      successfulRegister.value = false;
       print("status code : ${response.statusCode.toString()}");
     }
   }
