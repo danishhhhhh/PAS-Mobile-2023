@@ -24,7 +24,7 @@ class LoginPageController extends GetxController {
       bool status = jsonResponse['status'];
       String message = jsonResponse['message'];
       if(status){
-        Get.toNamed("/detail");
+        Get.toNamed("/menu");
         this.message.value = message;
         successfulLogin.value = true;
       } else {
