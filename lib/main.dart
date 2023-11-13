@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       getPages: routes,
-      initialRoute: '/register',
+
+      initialRoute: '/login',
     );
   }
 }

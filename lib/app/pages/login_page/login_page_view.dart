@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pas_mobile/app/pages/login_page/component/dont_have_account_component.dart';
 import 'package:pas_mobile/app/pages/login_page/widget/google_sign_in_button.dart';
-import 'package:pas_mobile/app/pages/login_page/widget/sign_in_button.dart';
+import 'package:pas_mobile/app/pages/login_page/widget/log_in_button.dart';
 import 'package:pas_mobile/app/pages/login_page/widget/text_field.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -68,7 +68,7 @@ class LoginPageView extends StatelessWidget {
                       icon: Icons.lock,
                       isPass: true),
                   SizedBox(height: 25),
-                  SignInButton(emailTextEditing: emailTextEditimgController,
+                  LoginInButton(emailTextEditing: emailTextEditimgController,
                     passwordTextEditing: passwordTextEditimgController,),
                   SizedBox(height: 10),
                   GoogleSignInButton(),

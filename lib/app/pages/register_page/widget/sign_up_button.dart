@@ -17,14 +17,14 @@ class SignUpButton extends StatelessWidget {
           print("email: ${emailTextEditing.text} : pass: ${passwordTextEditing.text}");
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorsBase.orangeBase
+          backgroundColor: ColorsBase.purpleDarkBase
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Sign Up',
                 style: TextStyle(
-                    color: ColorsBase.purpleDarkBase,
+                    color: ColorsBase.whiteBase,
                     fontFamily: "Poppins",
                     fontWeight: FontWeight.w600,
                     fontSize: 14)),
