@@ -79,7 +79,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                       hintText: "Password",
                       icon: Icons.lock,
                       isPass: true),
-                  Obx(() => controller.successfulLogin.value ? Container() : Padding(
+                  Obx(() => controller.successfulRegister.value ? Container() : Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(controller.message.value,
                       style: TextStyle(color: ColorsBase.redBase, fontFamily: "Poppins", fontSize: 12),),
