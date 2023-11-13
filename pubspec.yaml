@@ -40,7 +40,8 @@ dependencies:
   flutter_floating_bottom_bar: ^1.2.0
   flutter_svg:
   carousel_slider: ^4.2.1
-  
+  http:
+  intl:
 
 dev_dependencies:
   flutter_test:

@@ -13,7 +13,7 @@ class SettingWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          SizedBox(width: 30), 
+          SizedBox(width: 30),
           Icon(
             icon,
             color: ColorsBase.orangeBase,

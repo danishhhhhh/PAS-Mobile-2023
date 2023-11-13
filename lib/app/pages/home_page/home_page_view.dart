@@ -5,8 +5,6 @@ import 'package:pas_mobile/app/pages/home_page/widget/cardimages.dart';
 import 'package:pas_mobile/app/pages/home_page/widget/carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-
-
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
 
