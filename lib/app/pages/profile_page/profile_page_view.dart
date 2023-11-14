@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pas_mobile/app/data/email_data.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/settings_widget.dart';
@@ -33,7 +34,7 @@ const ProfilePageView({super.key});
                 ),
                 SizedBox(height: 30),
                 Text(
-                  "Nama User",
+                  username_data,
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: "Poppins",

@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:pas_mobile/app/data/email_data.dart';
+
 class LoginPageController extends GetxController {
   RxBool isObsecure = true.obs;
   RxBool isObsecureFalse = false.obs;
@@ -24,8 +26,9 @@ class LoginPageController extends GetxController {
       bool status = jsonResponse['status'];
       String message = jsonResponse['message'];
       if(status){
-        Get.toNamed("/detail");
+        Get.offNamed("/menu");
         this.message.value = message;
+        username_data = username;
         successfulLogin.value = true;
       } else {
         this.message.value = message;
