@@ -6,14 +6,13 @@ import 'package:pas_mobile/app/models/event_model.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class CheckoutButtonComponent extends StatelessWidget {
+class CheckoutButtonComponent extends GetView<CheckoutPageController> {
   const CheckoutButtonComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var payment = PaymentData().payment;
-    final CheckoutPageController controller = Get.put(CheckoutPageController());
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,

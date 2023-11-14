@@ -10,7 +10,6 @@ class PaymentSelector extends StatelessWidget {
       required this.name,
       required this.value});
 
-  final CheckoutPageController controller = Get.put(CheckoutPageController());
   final String image, name;
   final RxString value;
 

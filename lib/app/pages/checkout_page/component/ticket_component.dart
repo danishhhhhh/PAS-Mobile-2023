@@ -4,14 +4,13 @@ import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class TicketComponent extends StatelessWidget {
+class TicketComponent extends GetView<CheckoutPageController> {
   const TicketComponent({super.key});
   final price = '100';
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    final CheckoutPageController controller = Get.put(CheckoutPageController());
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

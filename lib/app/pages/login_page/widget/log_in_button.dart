@@ -19,7 +19,6 @@ class LoginInButton extends GetView<LoginPageController> {
       margin: EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
         onPressed: () async {
-          print("ini : ${emailTextEditing.text}");
           if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
             await controller.login(
                 emailTextEditing.text, passwordTextEditing.text);

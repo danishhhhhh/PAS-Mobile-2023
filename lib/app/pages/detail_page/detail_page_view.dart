@@ -7,13 +7,12 @@ import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
 import 'package:pas_mobile/app/pages/detail_page/widget/back_button.dart';
 import 'package:pas_mobile/app/pages/detail_page/widget/purchased_button.dart';
 
-class DetailPageView extends StatelessWidget {
+class DetailPageView extends GetView<DetailPageController> {
   const DetailPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    final DetailPageController controller = Get.put(DetailPageController());
 
     return Scaffold(
       body: SafeArea(

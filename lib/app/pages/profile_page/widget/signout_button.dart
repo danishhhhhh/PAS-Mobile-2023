@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class SignoutButton extends StatelessWidget {
@@ -10,7 +11,9 @@ class SignoutButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       width: double.maxFinite,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.offNamed("/login");
+        },
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(vertical: 14),
             backgroundColor: ColorsBase.redBase,
