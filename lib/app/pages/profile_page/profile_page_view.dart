@@ -42,16 +42,6 @@ const ProfilePageView({super.key});
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 5),
-                Text(
-                  "qwertyhihihuhu@gmail.com",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontFamily: "Poppins",
-                    color: ColorsBase.orangeBase,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
                 Divider(
                   height: 70,
                   indent: 40,
