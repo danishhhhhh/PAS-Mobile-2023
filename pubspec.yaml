@@ -43,6 +43,7 @@ dependencies:
   http:
   intl:
   persistent_bottom_nav_bar:
+  shimmer:
 
 dev_dependencies:
   flutter_test:

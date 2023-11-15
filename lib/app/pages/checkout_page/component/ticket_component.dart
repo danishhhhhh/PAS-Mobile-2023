@@ -19,7 +19,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
             Container(
               clipBehavior: Clip.hardEdge,
               height: height / 4,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: ColorsBase.purpleLightBase,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
@@ -69,7 +69,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 40,
                   width: 20,
                   child: DecoratedBox(
@@ -106,7 +106,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 40,
                   width: 20,
                   child: DecoratedBox(
@@ -122,7 +122,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
           ),
         ),
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: ColorsBase.purpleLightBase,
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40),
@@ -174,7 +174,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                 padding: const EdgeInsets.only(bottom: 30),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Total Price",
                       style: TextStyle(
                         fontFamily: 'Montserrat',
@@ -185,7 +185,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     const Spacer(),
                     Text(
                       "\$ ${controller.argumentData['eventPrice']}",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
                         color: ColorsBase.whiteBase,

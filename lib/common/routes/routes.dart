@@ -39,7 +39,7 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/home',
-    page: () => const HomePageView(),
+    page: () => HomePageView(),
     binding: HomePageBinding(),
   ),
   GetPage(

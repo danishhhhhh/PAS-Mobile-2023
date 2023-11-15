@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BackButtonArrow extends StatelessWidget {
   const BackButtonArrow({super.key});
@@ -10,7 +11,9 @@ class BackButtonArrow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.back();
+        },
         child: Container(
           clipBehavior: Clip.hardEdge,
           height: 55,

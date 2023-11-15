@@ -19,7 +19,7 @@ class SignoutButton extends StatelessWidget {
             backgroundColor: ColorsBase.redBase,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15))),
-        child: const Text(
+        child: Text(
           "Sign Out",
           style: TextStyle(
             fontFamily: "Poppins",
