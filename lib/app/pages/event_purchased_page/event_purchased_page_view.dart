@@ -34,7 +34,7 @@ class EventPurchasedPageView extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 color: ColorsBase.whiteBase,
                 width: double.maxFinite,
-                child: const Text(
+                child: Text(
                   textAlign: TextAlign.center,
                   "Your Ticket Purchased",
                   style: TextStyle(

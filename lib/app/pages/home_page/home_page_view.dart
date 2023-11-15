@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pas_mobile/app/data/email_data.dart';
+import 'package:pas_mobile/app/pages/home_page/home_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pas_mobile/app/pages/home_page/widget/cardimages.dart';
 import 'package:pas_mobile/app/pages/home_page/widget/carousel.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePageView extends StatelessWidget {
-  const HomePageView({super.key});
+  final HomePageController controller = Get.put(HomePageController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class HomePageView extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Hello Budi!",
+                      "Hello ${username_data}",
                       style: TextStyle(
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.w500,
@@ -61,7 +63,6 @@ class HomePageView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               CarouselPage(),
-
               Padding(
                 padding: EdgeInsets.only(top: 60, left: 35, right: 25),
                 child: Column(
@@ -101,29 +102,24 @@ class HomePageView extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    // SizedBox(height: 10),
-                    // CardWidget(imagePath: 'assets/images/dump/postertaylor.jpg'),
-                    // CardWidget(imagePath: 'assets/images/dump/poster1.jpg'),
-                    // CardWidget(imagePath: 'assets/images/dump/poster2.jpg'),
-                    // CardWidget(imagePath: 'assets/images/dump/poster3.jpg'),
-                    SizedBox(height: 10),
-                    CardWidget(),
-                    SizedBox(height: 5),
-                    CardWidget(),
-                    SizedBox(height: 5),
-                    CardWidget(),
-                    SizedBox(height: 5),
-                    CardWidget(),
-                    SizedBox(height: 5),
+                    ListView.builder(
+                      itemBuilder: (BuildContext context, int index) {
+                        return CardWidget(
+                          index: index,
+                        );
+                      },
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.isLoading.value
+                          ? 10
+                          : controller.data.value.embedded!.events.length,
+                    ),
                   ],
                 ),
               ),
-
             ],
           ),
         ),
-
       ),
     );
   }

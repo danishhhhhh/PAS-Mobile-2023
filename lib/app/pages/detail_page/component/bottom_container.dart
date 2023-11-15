@@ -31,7 +31,7 @@ class BottomContainer extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: ColorsBase.whiteBase,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50), topRight: Radius.circular(50))),

@@ -30,7 +30,7 @@ class PaymentSelector extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   name,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700,
                       color: ColorsBase.purpleDarkBase,

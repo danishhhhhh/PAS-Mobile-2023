@@ -1,7 +1,10 @@
 import 'dart:convert';
 
-TicketModel ticketModelFromJson(String str) =>
+TicketModel allTicketModelFromJson(String str) =>
     TicketModel.fromJson(json.decode(str));
+
+Event ticketModelFromJson(String str) =>
+    Event.fromJson(json.decode(str));
 
 class TicketModel {
   TicketEmbedded? embedded;
@@ -25,26 +28,28 @@ class TicketEmbedded {
 
 /*EVENT*/
 class Event {
-  String name;
+  String name, id;
   String? info;
-  Dates dates;
-  Promoter promoter;
-  Embedded embedded;
-  List<Image> images;
+  Dates? dates;
+  Promoter? promoter;
+  Embedded? embedded;
+  List<Image>? images;
   List<PriceRange>? priceRanges;
 
   Event({
     required this.name,
-    required this.dates,
-    required this.promoter,
-    required this.embedded,
-    required this.images,
-    required this.priceRanges,
+    required this.id,
+    this.dates,
+    this.promoter,
+    this.embedded,
+    this.images,
+    this.priceRanges,
     this.info,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => Event(
     name: json["name"],
+    id: json["id"],
     info: json["info"],
     dates: Dates.fromJson(json["dates"]),
     promoter: Promoter.fromJson(json["promoter"]),

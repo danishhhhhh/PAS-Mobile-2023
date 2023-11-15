@@ -26,23 +26,18 @@ class DetailPageView extends GetView<DetailPageController> {
                     SizedBox(
                       height: height * 0.4,
                       child: Image.network(
-                        controller.data.value.embedded!.events[0].images[0].url,
+                        controller.data.value.images![0].url,
                         fit: BoxFit.cover,
                       ),
                     ),
                     BottomContainer(
-                      eventName: controller.data.value.embedded!.events[0].name,
-                      eventPromoter: controller
-                          .data.value.embedded!.events[0].promoter.name,
-                      eventVenue: controller.data.value.embedded!.events[0]
-                          .embedded.venues[0].name,
-                      eventDate: controller
-                          .data.value.embedded!.events[0].dates.start.localDate,
-                      eventTime: controller
-                          .data.value.embedded!.events[0].dates.start.localTime,
-                      eventInfo:
-                          controller.data.value.embedded!.events[0].info ??
-                              "No Information for this event",
+                      eventName: controller.data.value.name,
+                      eventPromoter: controller.data.value.promoter!.name,
+                      eventVenue: controller.data.value.embedded!.venues[0].name,
+                      eventDate: controller.data.value.dates!.start.localDate,
+                      eventTime: controller.data.value.dates!.start.localTime,
+                      eventInfo: controller.data.value.info ??
+                          "No Information for this event",
                     ),
                     const BackButtonArrow(),
                     Obx(
@@ -50,17 +45,12 @@ class DetailPageView extends GetView<DetailPageController> {
                         alignment: Alignment.bottomCenter,
                         child: PurchasedButton(
                           eventName:
-                              controller.data.value.embedded!.events[0].name,
-                          eventImage: controller
-                              .data.value.embedded!.events[0].images[0].url,
-                          eventVenue: controller.data.value.embedded!.events[0]
-                              .embedded.venues[0].name,
-                          eventDate: controller.data.value.embedded!.events[0]
-                              .dates.start.localDate,
-                          eventTime: controller.data.value.embedded!.events[0]
-                              .dates.start.localTime,
-                          eventPrice: controller.data.value.embedded!.events[0]
-                              .priceRanges![0].min
+                          controller.data.value.name,
+                          eventImage: controller.data.value.images![0].url,
+                          eventVenue: controller.data.value.embedded!.venues[0].name,
+                          eventDate: controller.data.value.dates!.start.localDate,
+                          eventTime: controller.data.value.dates!.start.localTime,
+                          eventPrice: controller.data.value.priceRanges![0].min
                               .toString(),
                         ),
                       ),
