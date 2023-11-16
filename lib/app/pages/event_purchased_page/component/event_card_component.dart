@@ -13,7 +13,7 @@ class EventCardComponent extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      decoration: const BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
+      decoration: BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
         BoxShadow(
           color: ColorsBase.lightGreyBase,
           offset: Offset(
@@ -38,7 +38,7 @@ class EventCardComponent extends StatelessWidget {
                       color: ColorsBase.lightGreenBase,
                       border: Border.all(color: ColorsBase.greenBase, width: 1),
                       borderRadius: BorderRadius.circular(5)),
-                  child: const Text(
+                  child: Text(
                     "Payment Successful",
                     style: TextStyle(
                       color: ColorsBase.darkGreenBase,
@@ -55,7 +55,7 @@ class EventCardComponent extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(
+          Divider(
             height: 0,
             color: ColorsBase.lightGreyBase,
           ),
@@ -67,10 +67,14 @@ class EventCardComponent extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      width: width * 0.5,
                       child: Text(
                         name,
+                        softWrap: true,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w600,
@@ -79,7 +83,7 @@ class EventCardComponent extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.calendar_today,
                           color: ColorsBase.greyBase,
                           size: 20,
@@ -88,7 +92,7 @@ class EventCardComponent extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 5),
                           child: Text(
                             date,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: "Poppins",
                               color: ColorsBase.greyBase,
                               fontSize: 12,
@@ -101,7 +105,7 @@ class EventCardComponent extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 3),
                       child: Text(
                         "purchased on ${DateFormat("dd MMM yyyy").format(DateTime.now())}",
-                        style: const TextStyle(color: ColorsBase.greyBase),
+                        style: TextStyle(color: ColorsBase.greyBase),
                       ),
                     ),
                   ],
@@ -125,7 +129,7 @@ class EventCardComponent extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               padding: const EdgeInsets.all(7),
-              child: const Text(
+              child: Text(
                 "E-Voucher",
                 style: TextStyle(
                   color: ColorsBase.whiteBase,

@@ -10,13 +10,13 @@ class PaymentSelector extends StatelessWidget {
       required this.name,
       required this.value});
 
-  final CheckoutPageController controller = Get.put(CheckoutPageController());
   final String image, name;
   final RxString value;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckoutPageController>(
+
       builder: (controller) {
         return InkWell(
           onTap: () => controller.setOrderType(value.value),
@@ -30,7 +30,7 @@ class PaymentSelector extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   name,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700,
                       color: ColorsBase.purpleDarkBase,
