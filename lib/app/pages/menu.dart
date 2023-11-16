@@ -10,8 +10,8 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+    PersistentTabController _controller =
+        PersistentTabController(initialIndex: 0);
 
     List<Widget> _buildScreens() {
       return [
@@ -23,14 +23,42 @@ class Menu extends StatelessWidget {
 
     List<PersistentBottomNavBarItem> _navbarItem() {
       return [
-        PersistentBottomNavBarItem(icon: Icon(Icons.home_filled, shadows: [BoxShadow(
-          color: Colors.black.withOpacity(0.3),
-          spreadRadius: 2,
-          blurRadius: 5,
-          offset: Offset(3, 3),
-        ),]), inactiveColorPrimary: ColorsBase.lightGreyBase, activeColorPrimary: ColorsBase.orangeBase,),
-        PersistentBottomNavBarItem(icon: Icon(Icons.sticky_note_2_rounded), inactiveColorPrimary: ColorsBase.lightGreyBase, activeColorPrimary: ColorsBase.orangeBase,),
-        PersistentBottomNavBarItem(icon: Icon(Icons.person), inactiveColorPrimary: ColorsBase.lightGreyBase, activeColorPrimary: ColorsBase.orangeBase,),
+        PersistentBottomNavBarItem(
+          icon: Icon(Icons.home_filled, shadows: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(3, 3),
+            ),
+          ]),
+          inactiveColorPrimary: ColorsBase.lightGreyBase,
+          activeColorPrimary: ColorsBase.orangeBase,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Icon(Icons.sticky_note_2_rounded, shadows: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(3, 3),
+            ),
+          ]),
+          inactiveColorPrimary: ColorsBase.lightGreyBase,
+          activeColorPrimary: ColorsBase.orangeBase,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Icon(Icons.person, shadows: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(3, 3),
+            ),
+          ]),
+          inactiveColorPrimary: ColorsBase.lightGreyBase,
+          activeColorPrimary: ColorsBase.orangeBase,
+        ),
       ];
     }
 
