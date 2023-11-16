@@ -44,6 +44,8 @@ dependencies:
   intl:
   persistent_bottom_nav_bar:
   shimmer:
+  image_picker: ^1.0.4
+
 
 dev_dependencies:
   flutter_test:
