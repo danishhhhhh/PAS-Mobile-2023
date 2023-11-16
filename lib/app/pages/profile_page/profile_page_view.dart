@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:pas_mobile/app/data/email_data.dart';
-import 'package:pas_mobile/app/pages/profile_page/image_picker_controller.dart';
 import 'package:pas_mobile/app/pages/profile_page/profile_page_controller.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/settings_widget.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
