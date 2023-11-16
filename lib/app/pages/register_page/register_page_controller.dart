@@ -37,15 +37,15 @@ class RegisterPageController extends GetxController {
       bool status = jsonResponse['status'];
       String message = jsonResponse['message'];
       if (status) {
-        this.message.value = message;
         successfulRegister.value = true;
         isLoading.value = false;
+        this.message.value = message;
         ToastMessage.show(this.message.value);
         return;
       } else {
-        this.message.value = message;
         successfulRegister.value = false;
         isLoading.value = false;
+        this.message.value = message;
       }
     } else {
       successfulRegister.value = false;
