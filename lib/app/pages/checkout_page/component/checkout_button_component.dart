@@ -6,14 +6,13 @@ import 'package:pas_mobile/app/models/event_model.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class CheckoutButtonComponent extends StatelessWidget {
+class CheckoutButtonComponent extends GetView<CheckoutPageController> {
   const CheckoutButtonComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var payment = PaymentData().payment;
-    final CheckoutPageController controller = Get.put(CheckoutPageController());
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +39,7 @@ class CheckoutButtonComponent extends StatelessWidget {
                 Obx(
                   () => Text(
                     payment[int.parse(controller.orderType.value)].name,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.w700,
                         color: ColorsBase.purpleDarkBase,
@@ -51,7 +50,7 @@ class CheckoutButtonComponent extends StatelessWidget {
                 SizedBox(
                   height: height / 50,
                   width: 2,
-                  child: const DecoratedBox(
+                  child: DecoratedBox(
                     decoration: BoxDecoration(
                         color: ColorsBase.orangeBase,
                         borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -83,13 +82,13 @@ class CheckoutButtonComponent extends StatelessWidget {
                   date_event: controller.argumentData["eventDate"],
                 ),
               );
-              Get.toNamed("/event_purchashed");
+              Get.offAllNamed("/menu");
             },
             style: ElevatedButton.styleFrom(
                 backgroundColor: ColorsBase.orangeBase,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15))),
-            child: const Text(
+            child: Text(
               "Checkout",
               style: TextStyle(
                 fontFamily: "Montserrat",

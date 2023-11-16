@@ -4,14 +4,13 @@ import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class TicketComponent extends StatelessWidget {
+class TicketComponent extends GetView<CheckoutPageController> {
   const TicketComponent({super.key});
   final price = '100';
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    final CheckoutPageController controller = Get.put(CheckoutPageController());
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -20,7 +19,7 @@ class TicketComponent extends StatelessWidget {
             Container(
               clipBehavior: Clip.hardEdge,
               height: height / 4,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: ColorsBase.purpleLightBase,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
@@ -70,7 +69,7 @@ class TicketComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 40,
                   width: 20,
                   child: DecoratedBox(
@@ -107,7 +106,7 @@ class TicketComponent extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 40,
                   width: 20,
                   child: DecoratedBox(
@@ -123,7 +122,7 @@ class TicketComponent extends StatelessWidget {
           ),
         ),
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: ColorsBase.purpleLightBase,
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40),
@@ -175,7 +174,7 @@ class TicketComponent extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 30),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Total Price",
                       style: TextStyle(
                         fontFamily: 'Montserrat',
@@ -186,7 +185,7 @@ class TicketComponent extends StatelessWidget {
                     const Spacer(),
                     Text(
                       "\$ ${controller.argumentData['eventPrice']}",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
                         color: ColorsBase.whiteBase,

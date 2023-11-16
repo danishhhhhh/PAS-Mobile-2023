@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pas_mobile/app/data/event_data.dart';
 import 'package:pas_mobile/app/pages/event_purchased_page/component/event_card_component.dart';
-import 'package:pas_mobile/app/pages/event_purchased_page/event_purchased_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class EventPurchasedPageView extends StatelessWidget {
-  final EventPurchasedPageController controller =
-      Get.put(EventPurchasedPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class EventPurchasedPageView extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 color: ColorsBase.whiteBase,
                 width: double.maxFinite,
-                child: const Text(
+                child: Text(
                   textAlign: TextAlign.center,
                   "Your Ticket Purchased",
                   style: TextStyle(

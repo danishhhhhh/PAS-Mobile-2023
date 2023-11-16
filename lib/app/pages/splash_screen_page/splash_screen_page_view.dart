@@ -4,12 +4,11 @@ import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/splash_screen_page/splash_screen_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class SplashScreenView extends StatelessWidget {
+class SplashScreenView extends GetView<SplashScreenController> {
   const SplashScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final SplashScreenController controller = Get.put(SplashScreenController());
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: Center (

@@ -38,7 +38,7 @@ class PurchasedButton extends StatelessWidget {
             backgroundColor: ColorsBase.redBase,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15))),
-        child: const Text(
+        child: Text(
           "BUY NOW",
           style: TextStyle(
             fontFamily: "Poppins",

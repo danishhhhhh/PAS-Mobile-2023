@@ -19,42 +19,51 @@ class TextFieldSignIn extends GetView<RegisterPageController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 60, right: 60),
-      child: Obx(
-            ()=> TextField(
-              controller: textEditingController,
-            obscureText: isPass ? controller.isObsecure.value : controller.isObsecureFalse.value,
-            decoration: InputDecoration(
-              border: UnderlineInputBorder(),
-              hintText: hintText,
-              suffixIcon: isPass
-                  ? IconButton(
-                        icon: Icon(
-                          controller.isObsecure.value
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: ColorsBase.orangeBase,
-                        ),
-                        onPressed: () {
-                          controller.isObsecure.value =
-                              !controller.isObsecure.value;
-                        }
-                  )
-                  : null,
-              icon: Icon(icon, color: ColorsBase.orangeBase),
-              labelStyle: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 14,
-                  color: ColorsBase.blackBase,
-                  fontWeight: FontWeight.w600),
-              hintStyle: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 14,
-                  color: ColorsBase.blackBase,
-                  fontWeight: FontWeight.w400),
-            ),
+    return Obx(
+          () => TextField(
+        controller: textEditingController,
+        obscureText: isPass
+            ? controller.isObsecure.value
+            : controller.isObsecureFalse.value,
+        decoration: InputDecoration(
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: controller.successfulRegister.value
+                      ? ColorsBase.blackBase
+                      : ColorsBase.redBase)),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+                color: controller.successfulRegister.value
+                    ? ColorsBase.blackBase
+                    : ColorsBase.redBase),
           ),
+          hintText: hintText,
+          suffixIcon: isPass
+              ? IconButton(
+              icon: Icon(
+                controller.isObsecure.value
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+                color: ColorsBase.orangeBase,
+              ),
+              onPressed: () {
+                controller.isObsecure.value =
+                !controller.isObsecure.value;
+              })
+              : null,
+          icon: Icon(icon, color: ColorsBase.orangeBase),
+          hintStyle: TextStyle(
+              fontFamily: "Poppins",
+              fontSize: 14,
+              color: ColorsBase.blackBase,
+              fontWeight: FontWeight.w400),
+        ),
+        style: TextStyle(
+            fontFamily: "Poppins",
+            fontSize: 14,
+            color: controller.successfulRegister.value
+                ? ColorsBase.blackBase
+                : ColorsBase.redBase),
       ),
     );
   }

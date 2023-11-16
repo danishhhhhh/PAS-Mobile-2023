@@ -16,30 +16,14 @@ class LoginInButton extends GetView<LoginPageController> {
     return Container(
       width: double.infinity,
       height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
         onPressed: () async {
-          print("ini : ${emailTextEditing.text}");
           if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
             await controller.login(
                 emailTextEditing.text, passwordTextEditing.text);
           } else {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  content: Text('please fill the fields'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
+            controller.message.value = "Please fill username and password";
+            controller.successfulLogin.value = false;
           }
         },
         style: ElevatedButton.styleFrom(

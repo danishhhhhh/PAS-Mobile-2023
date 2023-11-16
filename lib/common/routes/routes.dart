@@ -9,6 +9,7 @@ import 'package:pas_mobile/app/pages/home_page/home_page_binding.dart';
 import 'package:pas_mobile/app/pages/home_page/home_page_view.dart';
 import 'package:pas_mobile/app/pages/login_page/login_page_binding.dart';
 import 'package:pas_mobile/app/pages/login_page/login_page_view.dart';
+import 'package:pas_mobile/app/pages/menu.dart';
 import 'package:pas_mobile/app/pages/profile_page/profile_page_binding.dart';
 import 'package:pas_mobile/app/pages/profile_page/profile_page_view.dart';
 import 'package:pas_mobile/app/pages/register_page/register_page_binding.dart';
@@ -32,10 +33,13 @@ List<GetPage> routes = [
     page: () => const RegisterPageView(),
     binding: RegisterPageBinding(),
   ),
-
+  GetPage(
+    name: '/menu',
+    page: () => const Menu(),
+  ),
   GetPage(
     name: '/home',
-    page: () => const HomePageView(),
+    page: () => HomePageView(),
     binding: HomePageBinding(),
   ),
   GetPage(

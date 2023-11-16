@@ -13,34 +13,20 @@ class SignUpButton extends GetView<RegisterPageController> {
     return Container(
       width: double.infinity,
       height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
         onPressed: () async {
-          if(!(emailTextEditing.text == "" && passwordTextEditing.text == "" && emailTextEditing.text == "")){
-            await controller.signup(
+          if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
+            await controller.signin(
                 emailTextEditing.text, passwordTextEditing.text, emailTextEditing.text);
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  content: Obx(()=>Text(controller.messageSignUp.value)),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
+          } else if(controller.successfulRegister.value) {
+            controller.message.value = "Please fill username and password";
+            controller.successfulRegister.value = false;
           } else {
             showDialog(
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  content: Text('please fill the fields'),
+                  content: Text('Please fill the fields'),
                   actions: [
                     TextButton(
                       onPressed: () {

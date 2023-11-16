@@ -22,7 +22,7 @@ class TicketInfo extends StatelessWidget {
         ),
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
             color: ColorsBase.whiteBase,

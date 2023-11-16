@@ -10,14 +10,11 @@ class GoogleSignInButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
-        onPressed: () {
-
-        },
+        onPressed: () {},
         style: ButtonStyle(
           backgroundColor:
-          MaterialStateProperty.all<Color>(ColorsBase.lightGreyBase),
+              MaterialStateProperty.all<Color>(ColorsBase.lightGreyBase),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -29,8 +26,14 @@ class GoogleSignInButton extends StatelessWidget {
             SizedBox(
               width: 10,
             ),
-            Text('Sign In with Google',
-                style: TextStyle(color: ColorsBase.blackBase)),
+            Text(
+              'Sign In with Google',
+              style: TextStyle(
+                  color: ColorsBase.blackBase,
+                  fontFamily: "Poppins",
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600),
+            ),
           ],
         ),
       ),
