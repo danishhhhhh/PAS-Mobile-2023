@@ -5,7 +5,7 @@ import 'package:pas_mobile/app/models/api_model.dart';
 
 class HomePageController extends GetxController {
   Rx<TicketModel> data = TicketModel().obs;
-
+  
   RxBool isLoading = true.obs;
 
   @override

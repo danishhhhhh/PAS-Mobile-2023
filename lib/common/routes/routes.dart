@@ -25,12 +25,12 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/login',
-    page: () => const LoginPageView(),
+    page: () => LoginPageView(),
     binding: LoginPageBinding(),
   ),
   GetPage(
     name: '/register',
-    page: () => const RegisterPageView(),
+    page: () => RegisterPageView(),
     binding: RegisterPageBinding(),
   ),
   GetPage(

@@ -44,6 +44,7 @@ dependencies:
   intl:
   persistent_bottom_nav_bar:
   shimmer:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:
