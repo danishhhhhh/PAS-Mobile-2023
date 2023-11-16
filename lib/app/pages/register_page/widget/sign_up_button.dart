@@ -19,7 +19,7 @@ class SignUpButton extends GetView<RegisterPageController> {
           if (formKey.currentState!.validate()){
             if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
               await controller.signin(
-                  emailTextEditing.text, passwordTextEditing.text, emailTextEditing.text);
+                  usernameTextEditing.text, emailTextEditing.text, passwordTextEditing.text);
             } else if(controller.successfulRegister.value) {
               controller.message.value = "Please fill username and password";
               controller.successfulRegister.value = false;

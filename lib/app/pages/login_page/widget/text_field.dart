@@ -25,9 +25,7 @@ class TextFieldLogIn extends GetView<LoginPageController> {
           if (value == null || value.isEmpty) {
             return 'You need to fill this field';
           } else if (hintText == "Username") {
-            if (!RegExp(r"^[a-zA-Z0-9]+$").hasMatch(value)) {
-              return 'Username can only contain letters and numbers';
-            } else if (value.length < 6) {
+            if (value.length < 6) {
               return 'Username must be at least 6 characters';
             }
           } else if (hintText == "Password") {

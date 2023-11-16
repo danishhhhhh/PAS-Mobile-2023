@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class RegisterPageView extends GetView<RegisterPageController> {
   RegisterPageView({super.key});
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -64,19 +65,22 @@ class RegisterPageView extends GetView<RegisterPageController> {
                   child: Column(
                     children: [
                       TextFieldSignIn(
-                          textEditingController: controller.usernameTextEditingController,
+                          textEditingController:
+                              controller.usernameTextEditingController,
                           hintText: "Username",
                           icon: Icons.person,
                           isPass: false),
                       SizedBox(height: 10),
                       TextFieldSignIn(
-                          textEditingController: controller.emailTextEditingController,
+                          textEditingController:
+                              controller.emailTextEditingController,
                           hintText: "Email",
                           icon: Icons.email,
                           isPass: false),
                       SizedBox(height: 10),
                       TextFieldSignIn(
-                          textEditingController: controller.passwordTextEditingController,
+                          textEditingController:
+                              controller.passwordTextEditingController,
                           hintText: "Password",
                           icon: Icons.lock,
                           isPass: true),
@@ -95,11 +99,36 @@ class RegisterPageView extends GetView<RegisterPageController> {
                               ),
                       ),
                       SizedBox(height: 25),
-                      SignUpButton(
-                        emailTextEditing: controller.emailTextEditingController,
-                        passwordTextEditing: controller.passwordTextEditingController,
-                        usernameTextEditing: controller.usernameTextEditingController,
-                        formKey: formKey,
+                      Obx(
+                        () => controller.isLoading.value
+                            ? Container(
+                                height: 50,
+                                width: double.maxFinite,
+                                decoration: BoxDecoration(
+                                  color: ColorsBase.greyBase,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(100)),
+                                ),
+                                child: Center(
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation(
+                                          ColorsBase.lightGreyBase),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : SignUpButton(
+                                emailTextEditing:
+                                    controller.emailTextEditingController,
+                                passwordTextEditing:
+                                    controller.passwordTextEditingController,
+                                usernameTextEditing:
+                                    controller.usernameTextEditingController,
+                                formKey: formKey,
+                              ),
                       ),
                     ],
                   ),
