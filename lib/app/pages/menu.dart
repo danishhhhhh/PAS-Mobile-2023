@@ -10,6 +10,7 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     PersistentTabController _controller =
         PersistentTabController(initialIndex: 0);
 
@@ -72,7 +73,7 @@ class Menu extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       stateManagement: true,
       hideNavigationBarWhenKeyboardShows: true,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: width * 0.075),
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(20),
         colorBehindNavBar: Colors.white,

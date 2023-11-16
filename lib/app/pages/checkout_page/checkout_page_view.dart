@@ -9,11 +9,12 @@ class CheckoutPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       appBar: AppBar(backgroundColor: ColorsBase.whiteBase),
-      body: const Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      body: Container(
+      margin: EdgeInsets.symmetric(horizontal: width * 0.1),
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [

@@ -12,6 +12,7 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
@@ -19,87 +20,89 @@ class HomePageView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20, left: 25, right: 25),
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: width * 0.1, vertical: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: SvgPicture.asset(
-                        "assets/images/harmoni_logo.svg",
-                        width: 135,
-                      ),
+                    SvgPicture.asset(
+                      "assets/images/harmoni_logo.svg",
+                      width: 135,
                     ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50.0),
-                        child: Image.asset(
-                          "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-                          width: 45,
-                          height: 45,
-                          fit: BoxFit.cover,
-                        ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(50.0),
+                      child: Image.asset(
+                        "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                        width: 45,
+                        height: 45,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 15, left: 35, right: 25),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: width * 0.1),
                 child: Column(
                   children: [
                     Text(
-                      "Hello ${username_data}",
+                      "Hello, ${username_data}!",
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10),
-              CarouselPage(),
-              Padding(
-                padding: EdgeInsets.only(top: 60, left: 35, right: 25),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 50),
+                child: CarouselPage(),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: width * 0.1),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Choose a",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              color: ColorsBase.purpleDarkBase,
+                    Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Choose a",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                                color: ColorsBase.purpleDarkBase,
+                                height: 0.1,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: "\nConcert ",
-                            style: TextStyle(
-                              color: ColorsBase.orangeBase,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20,
+                            TextSpan(
+                              text: "\nConcert ",
+                              style: TextStyle(
+                                color: ColorsBase.orangeBase,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w800,
+                                fontSize: 20,
+                                height: 0.1,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: " For today!",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              color: ColorsBase.purpleDarkBase,
-                            ),
-                          )
-                        ],
+                            TextSpan(
+                              text: " For today!",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                                color: ColorsBase.purpleDarkBase,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     ListView.builder(

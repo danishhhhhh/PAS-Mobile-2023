@@ -31,8 +31,8 @@ class PaymentSelector extends StatelessWidget {
                 child: Text(
                   name,
                   style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w700,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
                       color: ColorsBase.purpleDarkBase,
                       fontSize: 14),
                 ),

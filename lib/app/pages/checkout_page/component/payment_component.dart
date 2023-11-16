@@ -13,7 +13,7 @@ class PaymentComponent extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var payment = PaymentData().payment;
     return Padding(
-      padding: EdgeInsets.only(bottom: height / 7),
+      padding: EdgeInsets.only(bottom: height * 0.2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

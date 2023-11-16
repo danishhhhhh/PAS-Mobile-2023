@@ -8,16 +8,17 @@ class EventPurchasedPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: width * 0.1),
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
               Padding(
-                padding: EdgeInsets.only(top:  height / 15),
+                padding: EdgeInsets.only(top:  height * 0.1125),
                 child: ListView.builder(
                   itemCount: event_purchased.length,
                   shrinkWrap: true,
