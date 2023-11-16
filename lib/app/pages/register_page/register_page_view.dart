@@ -8,7 +8,8 @@ import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RegisterPageView extends GetView<RegisterPageController> {
-  const RegisterPageView({super.key});
+  RegisterPageView({super.key});
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,46 +59,50 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    TextFieldSignIn(
-                        textEditingController: controller.usernameTextEditingController,
-                        hintText: "Username",
-                        icon: Icons.person,
-                        isPass: false),
-                    SizedBox(height: 10),
-                    TextFieldSignIn(
-                        textEditingController: controller.emailTextEditingController,
-                        hintText: "Email",
-                        icon: Icons.email,
-                        isPass: false),
-                    SizedBox(height: 10),
-                    TextFieldSignIn(
-                        textEditingController: controller.passwordTextEditingController,
-                        hintText: "Password",
-                        icon: Icons.lock,
-                        isPass: true),
-                    Obx(
-                      () => controller.successfulRegister.value
-                          ? Container()
-                          : Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Text(
-                                controller.message.value,
-                                style: TextStyle(
-                                    color: ColorsBase.redBase,
-                                    fontFamily: "Poppins",
-                                    fontSize: 12),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      TextFieldSignIn(
+                          textEditingController: controller.usernameTextEditingController,
+                          hintText: "Username",
+                          icon: Icons.person,
+                          isPass: false),
+                      SizedBox(height: 10),
+                      TextFieldSignIn(
+                          textEditingController: controller.emailTextEditingController,
+                          hintText: "Email",
+                          icon: Icons.email,
+                          isPass: false),
+                      SizedBox(height: 10),
+                      TextFieldSignIn(
+                          textEditingController: controller.passwordTextEditingController,
+                          hintText: "Password",
+                          icon: Icons.lock,
+                          isPass: true),
+                      Obx(
+                        () => controller.successfulRegister.value
+                            ? Container()
+                            : Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  controller.message.value,
+                                  style: TextStyle(
+                                      color: ColorsBase.redBase,
+                                      fontFamily: "Poppins",
+                                      fontSize: 12),
+                                ),
                               ),
-                            ),
-                    ),
-                    SizedBox(height: 25),
-                    SignUpButton(
-                      emailTextEditing: controller.emailTextEditingController,
-                      passwordTextEditing: controller.passwordTextEditingController,
-                      usernameTextEditing: controller.usernameTextEditingController,
-                    ),
-                  ],
+                      ),
+                      SizedBox(height: 25),
+                      SignUpButton(
+                        emailTextEditing: controller.emailTextEditingController,
+                        passwordTextEditing: controller.passwordTextEditingController,
+                        usernameTextEditing: controller.usernameTextEditingController,
+                        formKey: formKey,
+                      ),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: Align(

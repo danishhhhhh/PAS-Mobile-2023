@@ -12,10 +12,12 @@ class LoginPageController extends GetxController {
   TextEditingController();
   RxBool isObsecure = true.obs;
   RxBool isObsecureFalse = false.obs;
+  RxBool isLoading = false.obs;
   RxBool successfulLogin = true.obs;
   RxString message = "".obs;
 
   login(String username, String password) async {
+    isLoading.value = true;
     final response = await http.post(
       Uri.parse("https://mediadwi.com/api/latihan/login"),
       headers: <String, String>{
@@ -35,9 +37,11 @@ class LoginPageController extends GetxController {
         this.message.value = message;
         username_data = username;
         successfulLogin.value = true;
+        isLoading.value = false;
       } else {
         this.message.value = message;
         successfulLogin.value = false;
+        isLoading.value = false;
       }
     } else {
       successfulLogin.value = false;

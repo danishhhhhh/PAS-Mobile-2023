@@ -20,7 +20,27 @@ class TextFieldLogIn extends GetView<LoginPageController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => TextField(
+      () => TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'You need to fill this field';
+          } else if (hintText == "Username") {
+            if (!RegExp(r"^[a-zA-Z0-9]+$").hasMatch(value)) {
+              return 'Username can only contain letters and numbers';
+            } else if (value.length < 6) {
+              return 'Username must be at least 6 characters';
+            }
+          } else if (hintText == "Password") {
+            if (!RegExp(r"^[a-zA-Z0-9]+$").hasMatch(value)) {
+              return 'Username can only contain letters and numbers';
+            }
+          } else if (!controller.successfulLogin.value){
+            print("INI SALAH");
+            return null;
+          }
+          return null;
+        },
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: textEditingController,
         obscureText: isPass
             ? controller.isObsecure.value
@@ -60,10 +80,7 @@ class TextFieldLogIn extends GetView<LoginPageController> {
         ),
         style: TextStyle(
             fontFamily: "Poppins",
-            fontSize: 14,
-            color: controller.successfulLogin.value
-                ? ColorsBase.blackBase
-                : ColorsBase.redBase),
+            fontSize: 14),
       ),
     );
   }

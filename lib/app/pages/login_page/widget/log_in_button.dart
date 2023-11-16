@@ -7,9 +7,11 @@ class LoginInButton extends GetView<LoginPageController> {
   const LoginInButton(
       {super.key,
       required this.emailTextEditing,
-      required this.passwordTextEditing});
+      required this.passwordTextEditing,
+      required this.formKey});
 
   final TextEditingController emailTextEditing, passwordTextEditing;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +20,14 @@ class LoginInButton extends GetView<LoginPageController> {
       height: 50,
       child: ElevatedButton(
         onPressed: () async {
-          if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
-            await controller.login(
-                emailTextEditing.text, passwordTextEditing.text);
-          } else {
-            controller.message.value = "Please fill username and password";
-            controller.successfulLogin.value = false;
+          if(formKey.currentState!.validate()){
+            if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
+              await controller.login(
+                  emailTextEditing.text, passwordTextEditing.text);
+            } else {
+              controller.message.value = "Please fill username and password";
+              controller.successfulLogin.value = false;
+            }
           }
         },
         style: ElevatedButton.styleFrom(

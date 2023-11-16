@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/login_page/component/dont_have_account_component.dart';
@@ -9,7 +11,9 @@ import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPageView extends GetView<LoginPageController> {
-  const LoginPageView({super.key});
+  LoginPageView({super.key});
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,42 +62,72 @@ class LoginPageView extends GetView<LoginPageController> {
                     ],
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextFieldLogIn(
-                        textEditingController: controller.emailTextEditingController,
-                        hintText: "Username",
-                        icon: Icons.person,
-                        isPass: false),
-                    SizedBox(height: 10),
-                    TextFieldLogIn(
-                        textEditingController: controller.passwordTextEditingController,
-                        hintText: "Password",
-                        icon: Icons.lock,
-                        isPass: true),
-                    Obx(
-                      () => controller.successfulLogin.value
-                          ? Container()
-                          : Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Text(
-                                controller.message.value,
-                                style: TextStyle(
-                                    color: ColorsBase.redBase,
-                                    fontFamily: "Poppins",
-                                    fontSize: 12),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFieldLogIn(
+                          textEditingController:
+                              controller.emailTextEditingController,
+                          hintText: "Username",
+                          icon: Icons.person,
+                          isPass: false),
+                      SizedBox(height: 10),
+                      TextFieldLogIn(
+                          textEditingController:
+                              controller.passwordTextEditingController,
+                          hintText: "Password",
+                          icon: Icons.lock,
+                          isPass: true),
+                      Obx(
+                        () => controller.successfulLogin.value
+                            ? Container()
+                            : Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  controller.message.value,
+                                  style: TextStyle(
+                                      color: ColorsBase.redBase,
+                                      fontFamily: "Poppins",
+                                      fontSize: 12),
+                                ),
                               ),
-                            ),
-                    ),
-                    SizedBox(height: height * 0.075),
-                    LoginInButton(
-                      emailTextEditing: controller.emailTextEditingController,
-                      passwordTextEditing: controller.passwordTextEditingController,
-                    ),
-                    SizedBox(height: 10),
-                    GoogleSignInButton(),
-                  ],
+                      ),
+                      SizedBox(height: height * 0.075),
+                      Obx(
+                        () => controller.isLoading.value
+                            ? Container(
+                                height: 50,
+                                width: double.maxFinite,
+                                decoration: BoxDecoration(
+                                  color: ColorsBase.greyBase,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(100)),
+                                ),
+                                child: Center(
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation(
+                                          ColorsBase.lightGreyBase),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : LoginInButton(
+                                emailTextEditing:
+                                    controller.emailTextEditingController,
+                                passwordTextEditing:
+                                    controller.passwordTextEditingController,
+                                formKey: formKey,
+                              ),
+                      ),
+                      SizedBox(height: 10),
+                      GoogleSignInButton(),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: Align(
