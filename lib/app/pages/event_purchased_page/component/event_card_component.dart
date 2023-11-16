@@ -67,8 +67,9 @@ class EventCardComponent extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      width: width * 0.5,
                       child: Text(
                         name,
                         softWrap: true,
