@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pas_mobile/app/data/email_data.dart';
-import 'package:pas_mobile/common/theme/theme.dart';
-import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
+import 'package:pas_mobile/app/pages/profile_page/profile_page_controller.dart';
 import 'package:pas_mobile/app/pages/profile_page/widget/settings_widget.dart';
+import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
+import 'package:pas_mobile/common/theme/theme.dart';
 
-class ProfilePageView extends StatelessWidget {
-const ProfilePageView({super.key});
+class ProfilePageView extends GetView<ProfilePageController> {
+  const ProfilePageView({Key? key}) : super(key: key);
 
- @override
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
@@ -25,11 +28,36 @@ const ProfilePageView({super.key});
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: ClipOval(
-                    child: Image.asset(
-                      "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-                      fit: BoxFit.cover,
-                    ),
+                  child: Obx(() {
+                    if (controller.image.value.path == '') {
+                      return Container(
+                        child: ClipOval(
+                          child: Image.asset(
+                            "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Container(
+                        child: ClipOval(
+                          child: Image.file(
+                            controller.image.value,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    }
+                  }),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: IconButton(
+                    onPressed: () {
+                      controller.imagePicker();
+                    },
+                    icon: Icon(Icons.add_a_photo, size: 30),
                   ),
                 ),
                 SizedBox(height: 30),
@@ -54,7 +82,7 @@ const ProfilePageView({super.key});
                 SizedBox(height: 20),
                 SettingWidget(
                   icon: Icons.color_lens,
-                  name: "Appreance",
+                  name: "Appearance",
                 ),
                 SizedBox(height: 20),
                 SettingWidget(
@@ -82,9 +110,9 @@ const ProfilePageView({super.key});
                   icon: Icons.info,
                   name: "FAQs",
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 15),
                 SignoutButton(),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
               ],
             ),
           ),
