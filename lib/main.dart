@@ -23,7 +23,11 @@ class MyApp extends StatelessWidget {
             color: ColorsBase.redBase,
           ))),
       getPages: routes,
+<<<<<<< HEAD
+      initialRoute: "/login",
+=======
       initialRoute: "/splash",
+>>>>>>> 672fd6f20b934f06e5d26c6f97e2860060f90110
     );
   }
 }
