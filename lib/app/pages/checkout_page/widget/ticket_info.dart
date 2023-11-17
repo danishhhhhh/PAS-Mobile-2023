@@ -17,16 +17,20 @@ class TicketInfo extends StatelessWidget {
       children: [
         SvgPicture.asset(
           image,
-          width: 30,
-          height: 30,
+          width: 20,
+          height: 20,
         ),
         Text(
           text,
           style: TextStyle(
-            fontFamily: 'Montserrat',
+            fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
             color: ColorsBase.whiteBase,
+            fontSize: 12,
           ),
+          softWrap: true,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         )
       ],
     );

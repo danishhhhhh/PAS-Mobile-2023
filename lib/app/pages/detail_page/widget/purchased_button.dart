@@ -19,7 +19,6 @@ class PurchasedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final DetailPageController controller = Get.put(DetailPageController());
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       width: double.maxFinite,
       child: ElevatedButton(
         onPressed: () {

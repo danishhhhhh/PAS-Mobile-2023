@@ -13,17 +13,18 @@ class EventCardComponent extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(color: ColorsBase.whiteBase, boxShadow: [
-        BoxShadow(
-          color: ColorsBase.lightGreyBase,
-          offset: Offset(
-            5,
-            5,
+      decoration: BoxDecoration(
+        color: ColorsBase.whiteBase,
+        boxShadow: [
+          BoxShadow(
+            color: ColorsBase.lightGreyBase,
+            offset: Offset(5, 5),
+            blurRadius: 10,
+            spreadRadius: 1,
           ),
-          blurRadius: 10,
-          spreadRadius: 1,
-        ),
-      ]),
+        ],
+        borderRadius: BorderRadius.circular(10),
+      ),
       width: double.maxFinite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,17 +68,18 @@ class EventCardComponent extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      width: width * 0.4,
                       child: Text(
                         name,
                         softWrap: true,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w600,
-                        ),
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13),
                       ),
                     ),
                     Row(
@@ -103,8 +105,11 @@ class EventCardComponent extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 3),
                       child: Text(
-                        "purchased on ${DateFormat("dd MMM yyyy").format(DateTime.now())}",
-                        style: TextStyle(color: ColorsBase.greyBase),
+                        "Purchased on ${DateFormat("dd MMM yyyy").format(DateTime.now())}",
+                        style: TextStyle(
+                            color: ColorsBase.greyBase,
+                            fontSize: 11,
+                            fontFamily: "Poppins"),
                       ),
                     ),
                   ],
@@ -114,7 +119,7 @@ class EventCardComponent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                   child: Image.network(
                     image,
-                    width: width / 3.5,
+                    width: width * 0.225,
                   ),
                 ),
               ],

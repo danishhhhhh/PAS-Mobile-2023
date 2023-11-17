@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/detail_page/component/bottom_container.dart';
@@ -13,6 +11,7 @@ class DetailPageView extends GetView<DetailPageController> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: SafeArea(
@@ -41,17 +40,20 @@ class DetailPageView extends GetView<DetailPageController> {
                     ),
                     const BackButtonArrow(),
                     Obx(
-                      () => Align(
-                        alignment: Alignment.bottomCenter,
-                        child: PurchasedButton(
-                          eventName:
-                          controller.data.value.name,
-                          eventImage: controller.data.value.images![0].url,
-                          eventVenue: controller.data.value.embedded!.venues[0].name,
-                          eventDate: controller.data.value.dates!.start.localDate,
-                          eventTime: controller.data.value.dates!.start.localTime,
-                          eventPrice: controller.data.value.priceRanges![0].min
-                              .toString(),
+                      () => Container(
+                        margin: EdgeInsets.symmetric(horizontal: width * 0.1, vertical: 10),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: PurchasedButton(
+                            eventName:
+                            controller.data.value.name,
+                            eventImage: controller.data.value.images![0].url,
+                            eventVenue: controller.data.value.embedded!.venues[0].name,
+                            eventDate: controller.data.value.dates!.start.localDate,
+                            eventTime: controller.data.value.dates!.start.localTime,
+                            eventPrice: controller.data.value.priceRanges![0].min
+                                .toString(),
+                          ),
                         ),
                       ),
                     ),

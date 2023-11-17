@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/common/routes/routes.dart';
+import 'package:pas_mobile/common/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +16,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PAS Mobile',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+          useMaterial3: true,
+          inputDecorationTheme: InputDecorationTheme(
+              errorStyle: TextStyle(
+            fontFamily: "Poppins",
+            color: ColorsBase.redBase,
+          ))),
       getPages: routes,
+<<<<<<< HEAD
       initialRoute: "/login",
+=======
+      initialRoute: "/splash",
+>>>>>>> 672fd6f20b934f06e5d26c6f97e2860060f90110
     );
   }
 }

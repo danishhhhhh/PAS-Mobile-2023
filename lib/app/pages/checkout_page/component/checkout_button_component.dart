@@ -17,62 +17,63 @@ class CheckoutButtonComponent extends GetView<CheckoutPageController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: ColorsBase.lightGreyBase, width: 1),
-              color: ColorsBase.whiteBase,
-            ),
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Obx(
-                    () => Image.asset(
-                      payment[int.parse(controller.orderType.value)].image,
-                      height: 24,
-                    ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 2.5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: ColorsBase.lightGreyBase, width: 1),
+            color: ColorsBase.whiteBase,
+          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Obx(
+                  () => Image.asset(
+                    payment[int.parse(controller.orderType.value)].image,
+                    height: 24,
                   ),
                 ),
-                Obx(
-                  () => Text(
-                    payment[int.parse(controller.orderType.value)].name,
-                    style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w700,
-                        color: ColorsBase.purpleDarkBase,
-                        fontSize: 14),
-                  ),
+              ),
+              Obx(
+                () => Text(
+                  payment[int.parse(controller.orderType.value)].name,
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                      color: ColorsBase.purpleDarkBase,
+                      fontSize: 11),
                 ),
-                const Spacer(),
-                SizedBox(
-                  height: height / 50,
-                  width: 2,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                        color: ColorsBase.orangeBase,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                  ),
+              ),
+              const Spacer(),
+              SizedBox(
+                height: height / 50,
+                width: 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      color: ColorsBase.orangeBase,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    "\$${controller.argumentData['eventPrice']}",
-                    style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w700,
-                        color: ColorsBase.purpleDarkBase,
-                        fontSize: 14),
-                  ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 5),
+                padding: EdgeInsets.all(5),
+                child: Text(
+                  "\$${controller.argumentData['eventPrice']}",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                      color: ColorsBase.purpleDarkBase,
+                      fontSize: 11),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-        SizedBox(
+        Container(
           width: double.maxFinite,
+          margin: EdgeInsets.only(bottom: 20),
           child: ElevatedButton(
             onPressed: () {
               addEvent(
@@ -91,8 +92,8 @@ class CheckoutButtonComponent extends GetView<CheckoutPageController> {
             child: Text(
               "Checkout",
               style: TextStyle(
-                fontFamily: "Montserrat",
-                fontWeight: FontWeight.w700,
+                fontFamily: "Poppins",
+                fontWeight: FontWeight.w600,
                 color: ColorsBase.whiteBase,
                 fontSize: 16,
               ),

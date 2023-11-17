@@ -11,6 +11,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -47,15 +48,18 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
                       controller.argumentData['eventName'],
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.w700,
-                          fontSize: 32,
+                          fontSize: width * 0.0625 ,
                           color: ColorsBase.whiteBase),
+                      softWrap: true,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
@@ -177,7 +181,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     Text(
                       "Total Price",
                       style: TextStyle(
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w400,
                         color: ColorsBase.whiteBase,
                       ),
@@ -186,7 +190,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     Text(
                       "\$ ${controller.argumentData['eventPrice']}",
                       style: TextStyle(
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         color: ColorsBase.whiteBase,
                       ),

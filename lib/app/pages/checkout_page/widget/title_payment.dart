@@ -13,8 +13,8 @@ class TitlePayment extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          fontFamily: "Montserrat",
-          fontWeight: FontWeight.w700,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
           color: ColorsBase.purpleDarkBase,
           fontSize: 16
         ),
