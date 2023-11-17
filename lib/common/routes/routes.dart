@@ -54,7 +54,7 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/profile',
-    page: () => const ProfilePageView(),
+    page: () =>  ProfilePageView(),
     binding: ProfilePageBinding(),
   ),
   GetPage(
