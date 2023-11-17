@@ -22,7 +22,9 @@ class HomePageView extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.symmetric(
-                    horizontal: width * 0.1, vertical: 15),
+                  horizontal: width * 0.1,
+                  vertical: 15,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

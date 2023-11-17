@@ -70,7 +70,7 @@ class EventCardComponent extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(bottom: 10),
-                      width: width * 0.5,
+                      width: width * 0.4,
                       child: Text(
                         name,
                         softWrap: true,
