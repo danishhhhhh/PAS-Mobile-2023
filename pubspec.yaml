@@ -46,6 +46,7 @@ dependencies:
   shimmer:
   image_picker: ^1.0.4
   fluttertoast:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

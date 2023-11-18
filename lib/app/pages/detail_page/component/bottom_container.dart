@@ -23,13 +23,15 @@ class BottomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return DraggableScrollableSheet(
       initialChildSize: 0.65,
       maxChildSize: 1.0,
       minChildSize: 0.65,
       builder: (context, controller) {
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: width * 0.125, vertical: height * 0.05),
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
               color: ColorsBase.whiteBase,
@@ -43,7 +45,7 @@ class BottomContainer extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.only(top: height * 0.025),
                     child: Text(
                       "BUY TICKET",
                       style: TextStyle(
@@ -69,6 +71,7 @@ class BottomContainer extends StatelessWidget {
                 ),
                 Divider(
                   height: 50,
+                  color: ColorsBase.greyBase,
                 ),
                 Text(
                   eventPromoter,

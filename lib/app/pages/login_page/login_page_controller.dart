@@ -4,8 +4,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:pas_mobile/app/data/email_data.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageController extends GetxController {
+  late final SharedPreferences prefs;
   final TextEditingController emailTextEditingController =
   TextEditingController();
   final TextEditingController passwordTextEditingController =
@@ -15,6 +17,16 @@ class LoginPageController extends GetxController {
   RxBool isLoading = false.obs;
   RxBool successfulLogin = true.obs;
   RxString message = "".obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadData();
+  }
+
+  loadData() async {
+    prefs = await SharedPreferences.getInstance();
+  }
 
   login(String username, String password) async {
     isLoading.value = true;
@@ -32,18 +44,23 @@ class LoginPageController extends GetxController {
       Map<String, dynamic> jsonResponse = json.decode(response.body);
       bool status = jsonResponse['status'];
       String message = jsonResponse['message'];
+      String? token = jsonResponse['token'];
       if(status){
-        Get.offNamed("/menu");
-        this.message.value = message;
-        username_data = username;
-        successfulLogin.value = true;
-        isLoading.value = false;
+      await prefs.setString("token", token!);
+      await prefs.setString("username", username);
+      this.message.value = message;
+      successfulLogin.value = true;
+      isLoading.value = false;
+      print("INI UDAH MASUK KE LOGIN HEHEHE");
+      Get.offNamed("/menu");
       } else {
         this.message.value = message;
         successfulLogin.value = false;
         isLoading.value = false;
+        print("INI SALAH KAMU NI GIMANA");
       }
     } else {
+      print("ERROR BANG");
       successfulLogin.value = false;
       print("status code : ${response.statusCode.toString()}");
     }
