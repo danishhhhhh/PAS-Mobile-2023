@@ -7,35 +7,40 @@ import 'package:pas_mobile/app/pages/profile_page/widget/signout_button.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class ProfilePageView extends StatelessWidget {
-   ProfilePageView({Key? key}) : super(key: key);
-
+  ProfilePageView({Key? key}) : super(key: key);
   ProfilePageController controller = Get.put(ProfilePageController());
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 20),
-              _buildProfileImage(),
-              SizedBox(height: 30),
-              _buildUsername(),
-              _buildDivider(),
-              _buildSetting("Personal Data", Icons.person),
-              _buildSetting("Appearance", Icons.color_lens),
-              _buildSetting("Language", Icons.language),
-              _buildSetting("Notification", Icons.notifications),
-              _buildDivider(),
-              _buildSetting("Privacy Police", Icons.privacy_tip_outlined),
-              _buildSetting("FAQs", Icons.info),
-              SizedBox(height: 15),
-              SignoutButton(),
-              SizedBox(height: 40),
-            ],
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: width * 0.1,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                _buildProfileImage(),
+                SizedBox(height: 30),
+                _buildUsername(),
+                _buildDivider(),
+                _buildSetting("Personal Data", Icons.person),
+                _buildSetting("Appearance", Icons.color_lens),
+                _buildSetting("Language", Icons.language),
+                _buildSetting("Notification", Icons.notifications),
+                _buildDivider(),
+                _buildSetting("Privacy Police", Icons.privacy_tip_outlined),
+                _buildSetting("FAQs", Icons.info),
+                SizedBox(height: 15),
+                SignoutButton(),
+                SizedBox(height: 40),
+              ],
+            ),
           ),
         ),
       ),
@@ -112,13 +117,15 @@ class ProfilePageView extends StatelessWidget {
   }
 
   Widget _buildUsername() {
-    return Text(
-      username_data,
-      style: TextStyle(
-        fontSize: 24,
-        fontFamily: "Poppins",
-        color: ColorsBase.purpleLightBase,
-        fontWeight: FontWeight.w600,
+    return Obx(
+      () => Text(
+        controller.username.value,
+        style: TextStyle(
+          fontSize: 24,
+          fontFamily: "Poppins",
+          color: ColorsBase.purpleLightBase,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }

@@ -2,9 +2,12 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pas_mobile/app/models/api_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePageController extends GetxController {
   Rx<TicketModel> data = TicketModel().obs;
+  late final SharedPreferences prefs;
+  RxString username = "".obs;
   
   RxBool isLoading = true.obs;
 
@@ -15,6 +18,8 @@ class HomePageController extends GetxController {
   }
 
   loadData() async {
+    prefs = await SharedPreferences.getInstance();
+    username.value = prefs.getString("username") ?? "No Username";
     final response = await http.get(Uri.parse(
         "https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&apikey=dAJ1FLpQoDkLO5zmA8AzEqZtysAjBzhb"));
     if (response.statusCode == 200) {
