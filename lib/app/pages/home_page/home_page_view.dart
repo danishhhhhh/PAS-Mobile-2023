@@ -48,12 +48,14 @@ class HomePageView extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: width * 0.1),
                 child: Column(
                   children: [
-                    Text(
-                      "Hello, ${username_data}!",
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400,
-                        fontSize: 18,
+                    Obx(
+                    () => Text(
+                        "Hello, ${controller.username.value}!",
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ],

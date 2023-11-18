@@ -117,13 +117,15 @@ class ProfilePageView extends StatelessWidget {
   }
 
   Widget _buildUsername() {
-    return Text(
-      username_data,
-      style: TextStyle(
-        fontSize: 24,
-        fontFamily: "Poppins",
-        color: ColorsBase.purpleLightBase,
-        fontWeight: FontWeight.w600,
+    return Obx(
+      () => Text(
+        controller.username.value,
+        style: TextStyle(
+          fontSize: 24,
+          fontFamily: "Poppins",
+          color: ColorsBase.purpleLightBase,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
