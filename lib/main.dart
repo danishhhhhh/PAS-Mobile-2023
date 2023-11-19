@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             color: ColorsBase.redBase,
           ))),
       getPages: routes,
-      initialRoute: "/splash",
+      initialRoute: "/eticket",
     );
   }
 }
