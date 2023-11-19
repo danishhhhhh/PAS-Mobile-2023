@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:pas_mobile/app/models/api_model.dart';
 
 class DetailPageController extends GetxController {
@@ -36,6 +37,26 @@ class DetailPageController extends GetxController {
   removeTicket() {
     if (ticketCount.value > 1) {
       ticketCount.value -= 1;
+    }
+  }
+
+  String formattingDate(String date) {
+    try {
+      DateTime originalDate = DateTime.parse(date);
+      String formattedDate = DateFormat('dd-MM-yyyy').format(originalDate);
+      return formattedDate; // Output: 18-11-2023
+    } catch (e) {
+      return "Invalid date format";
+    }
+  }
+
+  String formattingTime(String time) {
+    try {
+      DateTime originalTime = DateFormat('HH:mm:ss').parse(time);
+      String formattedTime = DateFormat('HH:mm').format(originalTime);
+      return formattedTime; // Output: 18-11-2023
+    } catch (e) {
+      return "Invalid time format";
     }
   }
 }
