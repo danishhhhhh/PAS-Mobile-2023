@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/common/widget/back_button.dart';
 
-class ETicketPageView extends StatelessWidget {
-  const ETicketPageView({super.key, this.eventName = "No Data"});
-
-  final String eventName;
+class ETicketPageView extends GetView<ETicketPageController> {
+  const ETicketPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +67,16 @@ class ETicketPageView extends StatelessWidget {
                               clipBehavior: Clip.hardEdge,
                             ),
                             SizedBox(height: 10),
-                            Text(
-                              eventName ?? "No Data",
-                              style: TextStyle(
-                                color: ColorsBase.whiteBase,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(
+                                controller.eventName,
+                                style: TextStyle(
+                                  color: ColorsBase.whiteBase,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
                               ),
                             ),
                           ],
