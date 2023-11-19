@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/detail_page/component/bottom_container.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
-import 'package:pas_mobile/app/pages/detail_page/widget/back_button.dart';
+import 'package:pas_mobile/common/widget/back_button.dart';
 import 'package:pas_mobile/app/pages/detail_page/widget/purchased_button.dart';
 
 class DetailPageView extends GetView<DetailPageController> {
@@ -38,7 +38,7 @@ class DetailPageView extends GetView<DetailPageController> {
                       eventInfo: controller.data.value.info ??
                           "No Information for this event",
                     ),
-                    const BackButtonArrow(),
+                    const BackButtonWidget(),
                     Obx(
                       () => Container(
                         margin: EdgeInsets.symmetric(horizontal: width * 0.1, vertical: 10),

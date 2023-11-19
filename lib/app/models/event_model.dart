@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class EventModel {
   String name_event, image_event, date_event;
 

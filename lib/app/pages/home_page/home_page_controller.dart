@@ -20,6 +20,10 @@ class HomePageController extends GetxController {
   loadData() async {
     prefs = await SharedPreferences.getInstance();
     username.value = prefs.getString("username") ?? "No Username";
+
+
+
+
     final response = await http.get(Uri.parse(
         "https://app.ticketmaster.com/discovery/v2/events.json?classificationId=KZFzniwnSyZfZ7v7nJ&apikey=dAJ1FLpQoDkLO5zmA8AzEqZtysAjBzhb"));
     if (response.statusCode == 200) {
