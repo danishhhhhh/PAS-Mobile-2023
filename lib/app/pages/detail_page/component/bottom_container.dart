@@ -121,6 +121,7 @@ class BottomContainer extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: 12),
                 ),
+                SizedBox(height: height * 0.1,)
               ],
             ),
           ),
