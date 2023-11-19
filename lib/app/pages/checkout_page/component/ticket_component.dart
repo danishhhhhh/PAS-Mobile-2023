@@ -157,11 +157,11 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/calendar.svg',
-                    text: controller.argumentData['eventDate'],
+                    text: controller.formattingDate(controller.argumentData['eventDate']),
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/clock.svg',
-                    text: controller.argumentData['eventTime'],
+                    text: controller.formattingTime(controller.argumentData['eventTime']),
                   ),
                 ],
               ),
