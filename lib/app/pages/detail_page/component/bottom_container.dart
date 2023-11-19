@@ -3,31 +3,47 @@ import 'package:pas_mobile/app/pages/detail_page/widget/info_widget.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class BottomContainer extends StatelessWidget {
-  const BottomContainer({super.key});
+  const BottomContainer(
+      {super.key,
+      required this.eventName,
+      required this.eventPromoter,
+      required this.eventVenue,
+      required this.eventDate,
+      required this.eventTime,
+      required this.eventInfo});
+
+  final String eventName,
+      eventPromoter,
+      eventVenue,
+      eventDate,
+      eventTime,
+      eventInfo;
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return DraggableScrollableSheet(
       initialChildSize: 0.65,
       maxChildSize: 1.0,
       minChildSize: 0.65,
       builder: (context, controller) {
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: width * 0.125, vertical: height * 0.05),
           clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: ColorsBase.whiteBase,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50), topRight: Radius.circular(50))),
           child: SingleChildScrollView(
             controller: controller,
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(
                   alignment: Alignment.center,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.only(top: height * 0.025),
                     child: Text(
                       "BUY TICKET",
                       style: TextStyle(
@@ -42,7 +58,7 @@ class BottomContainer extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Taylor Swift",
+                    eventName,
                     style: TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w700,
@@ -53,9 +69,10 @@ class BottomContainer extends StatelessWidget {
                 ),
                 Divider(
                   height: 50,
+                  color: ColorsBase.greyBase,
                 ),
                 Text(
-                  "LIVE NATION MUSIC",
+                  eventPromoter,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w600,
@@ -75,36 +92,34 @@ class BottomContainer extends StatelessWidget {
                 ),
                 InfoWidget(
                   icon: Icons.location_on,
-                  name: "Gelora Bung Karno",
+                  name: eventVenue,
                 ),
                 InfoWidget(
                   icon: Icons.calendar_today_outlined,
-                  name: "28 Feb 2023 ",
+                  name: eventDate,
                 ),
                 InfoWidget(
                   icon: Icons.access_time_outlined,
-                  name: "19.00-22.00",
+                  name: eventTime,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    "Description",
+                    "Info",
                     style: TextStyle(
-                      color: ColorsBase.blackBase,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18
-                    ),
+                        color: ColorsBase.blackBase,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18),
                   ),
                 ),
                 Text(
-                  "Get ready to be swept off your feet by the enchanting melodies and captivating stage presence of the global superstar, Taylor Swift! Taylor Swift's Spectacular Tour Concert is a musical extravaganza like no other, promising an unforgettable night filled with emotion, energy, and pure entertainment.",
+                  eventInfo,
                   style: TextStyle(
                       color: ColorsBase.greyBase,
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400,
-                      fontSize: 12
-                  ),
+                      fontSize: 12),
                 ),
               ],
             ),

@@ -3,12 +3,15 @@ import 'package:pas_mobile/app/pages/checkout_page/checkout_page_binding.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_view.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_binding.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_view.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_binding.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_view.dart';
 import 'package:pas_mobile/app/pages/event_purchased_page/event_purchased_page_binding.dart';
 import 'package:pas_mobile/app/pages/event_purchased_page/event_purchased_page_view.dart';
 import 'package:pas_mobile/app/pages/home_page/home_page_binding.dart';
 import 'package:pas_mobile/app/pages/home_page/home_page_view.dart';
 import 'package:pas_mobile/app/pages/login_page/login_page_binding.dart';
 import 'package:pas_mobile/app/pages/login_page/login_page_view.dart';
+import 'package:pas_mobile/app/pages/menu.dart';
 import 'package:pas_mobile/app/pages/profile_page/profile_page_binding.dart';
 import 'package:pas_mobile/app/pages/profile_page/profile_page_view.dart';
 import 'package:pas_mobile/app/pages/register_page/register_page_binding.dart';
@@ -24,18 +27,21 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/login',
-    page: () => const LoginPageView(),
+    page: () => LoginPageView(),
     binding: LoginPageBinding(),
   ),
   GetPage(
     name: '/register',
-    page: () => const RegisterPageView(),
+    page: () => RegisterPageView(),
     binding: RegisterPageBinding(),
   ),
-
+  GetPage(
+    name: '/menu',
+    page: () => const Menu(),
+  ),
   GetPage(
     name: '/home',
-    page: () => const HomePageView(),
+    page: () => HomePageView(),
     binding: HomePageBinding(),
   ),
   GetPage(
@@ -45,18 +51,23 @@ List<GetPage> routes = [
   ),
   GetPage(
     name: '/event_purchashed',
-    page: () => const EventPurchasedPageView(),
+    page: () => EventPurchasedPageView(),
     binding: EventPurchasedPageBinding(),
   ),
   GetPage(
     name: '/profile',
-    page: () => const ProfilePageView(),
+    page: () =>  ProfilePageView(),
     binding: ProfilePageBinding(),
   ),
   GetPage(
     name: '/checkout',
     page: () => const CheckoutPageView(),
     binding: CheckoutPageBinding(),
+  ),
+  GetPage(
+    name: '/eticket',
+    page: () => const ETicketPageView(),
+    binding: ETicketPageBinding(),
   ),
 
 ];
