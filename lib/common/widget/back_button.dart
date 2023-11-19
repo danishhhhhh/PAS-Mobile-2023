@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
@@ -25,10 +24,17 @@ class BackButtonWidget extends StatelessWidget {
           ),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: const Icon(
-              Icons.arrow_back_ios_outlined,
-              size: 20,
-              color: ColorsBase.blackBase,
+            child: Container(
+              height: 55,
+              width: 55,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: const Icon(
+                Icons.arrow_back_ios_outlined,
+                size: 20,
+                color: ColorsBase.greyBase,
+              ),
             ),
           ),
         ),
