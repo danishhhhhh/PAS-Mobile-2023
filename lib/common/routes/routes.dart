@@ -3,6 +3,8 @@ import 'package:pas_mobile/app/pages/checkout_page/checkout_page_binding.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_view.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_binding.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_view.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_binding.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_view.dart';
 import 'package:pas_mobile/app/pages/event_purchased_page/event_purchased_page_binding.dart';
 import 'package:pas_mobile/app/pages/event_purchased_page/event_purchased_page_view.dart';
 import 'package:pas_mobile/app/pages/home_page/home_page_binding.dart';
@@ -61,6 +63,11 @@ List<GetPage> routes = [
     name: '/checkout',
     page: () => const CheckoutPageView(),
     binding: CheckoutPageBinding(),
+  ),
+  GetPage(
+    name: '/eticket',
+    page: () => const ETicketPageView(),
+    binding: ETicketPageBinding(),
   ),
 
 ];
