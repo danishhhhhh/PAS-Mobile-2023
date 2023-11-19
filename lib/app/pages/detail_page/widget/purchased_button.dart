@@ -13,11 +13,11 @@ class PurchasedButton extends StatelessWidget {
       required this.eventTime,
       required this.eventPrice});
 
-  final String eventName, eventImage, eventVenue, eventDate, eventTime, eventPrice;
+  final String eventName, eventImage, eventVenue, eventDate, eventTime;
+  final double eventPrice;
 
   @override
   Widget build(BuildContext context) {
-    final DetailPageController controller = Get.put(DetailPageController());
     return Container(
       width: double.maxFinite,
       child: ElevatedButton(

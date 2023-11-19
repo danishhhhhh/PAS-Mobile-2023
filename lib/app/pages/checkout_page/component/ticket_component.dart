@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
+import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class TicketComponent extends GetView<CheckoutPageController> {
-  const TicketComponent({super.key});
-  final price = '100';
+   TicketComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +189,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     ),
                     const Spacer(),
                     Text(
-                      "\$ ${controller.argumentData['eventPrice']}",
+                      "\$ ${controller.price()}",
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
