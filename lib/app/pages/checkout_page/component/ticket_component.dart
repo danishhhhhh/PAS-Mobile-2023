@@ -7,7 +7,7 @@ import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class TicketComponent extends GetView<CheckoutPageController> {
-   TicketComponent({super.key});
+  TicketComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w700,
-                          fontSize: width * 0.0625 ,
+                          fontSize: width * 0.0625,
                           color: ColorsBase.whiteBase),
                       softWrap: true,
                       maxLines: 2,
@@ -145,9 +145,11 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   crossAxisSpacing: 30,
                 ),
                 children: [
-                  TicketInfo(
-                    image: 'assets/images/icons/user.svg',
-                    text: "Qwerty",
+                  Obx(
+                    () => TicketInfo(
+                      image: 'assets/images/icons/user.svg',
+                      text: controller.username.value,
+                    ),
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/map_pointer.svg',
