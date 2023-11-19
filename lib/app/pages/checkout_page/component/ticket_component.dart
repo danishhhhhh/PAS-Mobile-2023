@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
-import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class TicketComponent extends GetView<CheckoutPageController> {
@@ -157,11 +156,11 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/calendar.svg',
-                    text: controller.argumentData['eventDate'],
+                    text: controller.formattingDate(controller.argumentData['eventDate']),
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/clock.svg',
-                    text: controller.argumentData['eventTime'],
+                    text: controller.formattingTime(controller.argumentData['eventTime']),
                   ),
                 ],
               ),
