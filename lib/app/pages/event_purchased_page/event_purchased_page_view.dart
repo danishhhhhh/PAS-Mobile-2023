@@ -23,7 +23,7 @@ class EventPurchasedPageView extends StatelessWidget {
                     ? Column(
                         children: [
                           SvgPicture.asset(
-                            "assets/images/icons/Empty street-bro.svg",
+                            "assets/images/empty_image.svg",
                             height: height * 0.25,
                           ),
                           SizedBox(
