@@ -68,8 +68,8 @@ class CardWidget extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text(
-                                    controller.data.value.embedded!
-                                        .events[index].dates!.start.localDate,
+                                    controller.formattingDate(controller.data.value.embedded!
+                                        .events[index].dates!.start.localDate),
                                     style: TextStyle(
                                       color: ColorsBase.lightGreyBase,
                                       fontFamily: "Poppins",
@@ -87,8 +87,8 @@ class CardWidget extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    controller.data.value.embedded!
-                                        .events[index].dates!.start.localTime,
+                                    controller.formattingTime(controller.data.value.embedded!
+                                        .events[index].dates!.start.localTime),
                                     style: TextStyle(
                                       color: ColorsBase.lightGreyBase,
                                       fontFamily: "Poppins",
