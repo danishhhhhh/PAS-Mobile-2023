@@ -23,44 +23,38 @@ class DetailPageView extends GetView<DetailPageController> {
                 )
               : Stack(
                   children: [
-                    SizedBox(
-                      height: height * 0.4,
-                      child: Image.network(
-                        controller.data.value.images![0].url,
-                        fit: BoxFit.cover,
+                    SingleChildScrollView(
+                      child: Stack(
+                        children: [
+                          SizedBox(
+                            height: height * 0.4,
+                            child: Image.network(
+                              controller.data.value.images![0].url,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          BottomContainer(
+                            eventName: controller.data.value.name,
+                            eventPromoter: controller.data.value.promoter!.name,
+                            eventVenue: controller.data.value.embedded!.venues[0].name,
+                            eventDate: controller.data.value.dates!.start.localDate,
+                            eventTime: controller.data.value.dates!.start.localTime,
+                            eventInfo: controller.data.value.info ??
+                                "No Information for this event",
+                          ),
+                        ],
                       ),
                     ),
-                    BottomContainer(
-                      eventName: controller.data.value.name,
-                      eventPromoter: controller.data.value.promoter!.name,
-                      eventVenue: controller.data.value.embedded!.venues[0].name,
-                      eventDate: controller.data.value.dates!.start.localDate,
-                      eventTime: controller.data.value.dates!.start.localTime,
-                      eventInfo: controller.data.value.info ??
-                          "No Information for this event",
-                    ),
                     const BackButtonWidget(),
-                    Obx(
-                      () => Container(
+                    Container(
                         margin: EdgeInsets.symmetric(horizontal: width * 0.1, vertical: 10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            TicketCounterWidget(),
-                            SizedBox(height: 10),
-                            PurchasedButton(
-                              eventName:
-                              controller.data.value.name,
-                              eventImage: controller.data.value.images![0].url,
-                              eventVenue: controller.data.value.embedded!.venues[0].name,
-                              eventDate: controller.data.value.dates!.start.localDate,
-                              eventTime: controller.data.value.dates!.start.localTime,
-                              eventPrice: controller.data.value.priceRanges![0].min,
-                            ),
+                            PurchasedButton(),
                           ],
                         ),
                       ),
-                    ),
                   ],
                 ),
         ),

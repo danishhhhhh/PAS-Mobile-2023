@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/detail_page/component/show_modal_component.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
+import 'package:pas_mobile/app/pages/detail_page/widget/ticket_counter_widget.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class PurchasedButton extends StatelessWidget {
   const PurchasedButton(
-      {super.key,
-      required this.eventName,
-        required this.eventImage,
-      required this.eventVenue,
-      required this.eventDate,
-      required this.eventTime,
-      required this.eventPrice});
-
-  final String eventName, eventImage, eventVenue, eventDate, eventTime;
-  final double eventPrice;
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +15,11 @@ class PurchasedButton extends StatelessWidget {
       width: double.maxFinite,
       child: ElevatedButton(
         onPressed: () {
-          Get.toNamed("/checkout", arguments:
-            {"eventName": eventName,
-              "eventImage": eventImage,
-              "eventVenue": eventVenue,
-              "eventDate": eventDate,
-              "eventTime": eventTime,
-              "eventPrice": eventPrice,
+          showModalBottomSheet(
+            backgroundColor: ColorsBase.whiteBase,
+            context: context,
+            builder: (BuildContext context) {
+              return ShowModalComponent(context: context,);
             },
           );
         },
