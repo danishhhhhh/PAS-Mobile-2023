@@ -37,4 +37,5 @@ class ProfilePageController extends GetxController {
     prefs.clear();
     Get.offNamed("/login");
   }
+
 }

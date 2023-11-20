@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/data/email_data.dart';
 import 'package:pas_mobile/app/pages/home_page/home_page_controller.dart';
+import 'package:pas_mobile/app/pages/profile_page/profile_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pas_mobile/app/pages/home_page/widget/cardimages.dart';
@@ -12,6 +13,8 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ProfilePageController profilePageController = Get.find<ProfilePageController>();
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
@@ -32,13 +35,23 @@ class HomePageView extends StatelessWidget {
                       "assets/images/harmoni_logo.svg",
                       width: 135,
                     ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(50.0),
-                      child: Image.asset(
-                        "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-                        width: 45,
-                        height: 45,
-                        fit: BoxFit.cover,
+                    Obx(
+                        () => ClipRRect(
+                        borderRadius: BorderRadius.circular(50.0),
+                        child: (profilePageController.image.value.path == "") ?
+                        Image.asset(
+                          "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                          width: 45,
+                          height: 45,
+                          fit: BoxFit.cover,
+                        )
+                        :
+                        Image.file(
+                          profilePageController.image.value,
+                          width: 45,
+                          height: 45,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],
