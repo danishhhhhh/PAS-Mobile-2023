@@ -8,10 +8,21 @@ class CheckoutPageController extends GetxController {
   dynamic argumentData = Get.arguments;
   late final SharedPreferences prefs;
   RxString username = "".obs;
+  RxBool isPayment = true.obs;
+  RxBool onClickPrice = false.obs;
+  RxInt ticketCount = 0.obs;
 
-  final RxString _orderType = "0".obs;
+  final RxString _orderType = "".obs;
   RxString get orderType => _orderType;
+
+  void setDefaultOrderType() {
+    _orderType.value = "";
+    print(_orderType);
+    update();
+  }
+
   void setOrderType(String type) {
+    isPayment.value = true;
     _orderType.value = type;
     print(_orderType);
     update();
@@ -23,9 +34,9 @@ class CheckoutPageController extends GetxController {
     load();
   }
 
-  String price() {
-    int ticketCount = Get.find<DetailPageController>().ticketCount.value;
-    double totalPrice = argumentData["eventPrice"] * ticketCount;
+  String totalPrice() {
+    ticketCount.value = Get.find<DetailPageController>().ticketCount.value;
+    double totalPrice = argumentData["eventPrice"] * ticketCount.value;
     String formattedPrice = totalPrice.toStringAsFixed(2);
     return formattedPrice;
   }
@@ -38,7 +49,7 @@ class CheckoutPageController extends GetxController {
   String formattingDate(String date) {
     try {
       DateTime originalDate = DateTime.parse(date);
-      String formattedDate = DateFormat('dd-MM-yyyy').format(originalDate);
+      String formattedDate = DateFormat('dd MMM yyyy').format(originalDate);
       return formattedDate; // Output: 18-11-2023
     } catch (e) {
       return "Invalid date format";

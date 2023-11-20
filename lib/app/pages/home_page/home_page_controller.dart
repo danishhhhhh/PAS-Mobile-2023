@@ -43,7 +43,7 @@ class HomePageController extends GetxController {
   String formattingDate(String date) {
     try {
       DateTime originalDate = DateTime.parse(date);
-      String formattedDate = DateFormat('dd-MM-yyyy').format(originalDate);
+      String formattedDate = DateFormat('dd MMM yyyy').format(originalDate);
       return formattedDate; // Output: 18-11-2023
     } catch (e) {
       return "Invalid date format";
