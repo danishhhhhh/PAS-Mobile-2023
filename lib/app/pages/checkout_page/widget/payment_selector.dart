@@ -19,7 +19,13 @@ class PaymentSelector extends StatelessWidget {
 
       builder: (controller) {
         return InkWell(
-          onTap: () => controller.setOrderType(value.value),
+          onTap: () {
+            if(controller.orderType.value == value.value){
+              controller.setDefaultOrderType();
+            } else {
+              controller.setOrderType(value.value);
+            }
+          },
           child: Row(
             children: [
               Image.asset(
