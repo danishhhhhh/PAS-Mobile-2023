@@ -1,12 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/common/widget/back_button.dart';
-import 'package:flutter/services.dart';
-
 
 class ETicketPageView extends GetView<ETicketPageController> {
   const ETicketPageView({Key? key, this.eventName = "No Data"}) : super(key: key);
