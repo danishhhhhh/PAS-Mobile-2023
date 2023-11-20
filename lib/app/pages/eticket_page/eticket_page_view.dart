@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/common/widget/back_button.dart';
-import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
+import 'package:flutter/services.dart';
+
 
 class ETicketPageView extends GetView<ETicketPageController> {
-  const ETicketPageView({super.key, this.eventName = "No Data"});
+  const ETicketPageView({Key? key, this.eventName = "No Data"}) : super(key: key);
 
   final String eventName;
 
@@ -14,6 +17,7 @@ class ETicketPageView extends GetView<ETicketPageController> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: ColorsBase.whiteBase,
       body: SafeArea(
@@ -32,8 +36,8 @@ class ETicketPageView extends GetView<ETicketPageController> {
                     color: ColorsBase.whiteBase,
                     width: double.maxFinite,
                     child: Text(
-                      textAlign: TextAlign.center,
                       "E-Ticket",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: ColorsBase.purpleDarkBase,
                         fontFamily: "Poppins",
@@ -62,8 +66,9 @@ class ETicketPageView extends GetView<ETicketPageController> {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                  color: ColorsBase.purpleLightBase,
-                                  borderRadius: BorderRadius.circular(20)),
+                                color: ColorsBase.purpleLightBase,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                               child: Image.asset(
                                 controller.imageURL.value,
                               ),
@@ -87,8 +92,9 @@ class ETicketPageView extends GetView<ETicketPageController> {
                         width: width * 0.75,
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                            color: ColorsBase.purpleLightBase,
-                            borderRadius: BorderRadius.circular(30)),
+                          color: ColorsBase.purpleLightBase,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                       ),
                       SizedBox(height: height * 0.05),
                       Divider(),
@@ -102,9 +108,20 @@ class ETicketPageView extends GetView<ETicketPageController> {
                     ),
                     child: const Text("Save Image"),
                     onPressed: () async {
-                      // String url = "assets/images/qr.png"
+                      try {
+                        final ByteData data = await rootBundle.load(controller.imageURL.value);
+                        final List<int> bytes = data.buffer.asUint8List();
+                        await ImageGallerySaver.saveImage(Uint8List.fromList(bytes));
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Wow you already download it!!!')),
+                        );
+                      } catch (e) {
+                        print('Error: $e');
+                      }
                     },
                   ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -117,9 +134,10 @@ class ETicketPageView extends GetView<ETicketPageController> {
                         child: Text(
                           "Do not display or share this QR code.",
                           style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12),
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
