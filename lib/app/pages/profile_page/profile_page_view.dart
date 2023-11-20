@@ -74,13 +74,12 @@ class ProfilePageView extends StatelessWidget {
     return Container(
       child: ClipOval(
         child: Image.asset(
-          "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+          "assets/images/dump/pfp.jpg",
           fit: BoxFit.cover,
         ),
       ),
     );
   }
-
   Widget _buildFileImage() {
     return Container(
       child: ClipOval(
