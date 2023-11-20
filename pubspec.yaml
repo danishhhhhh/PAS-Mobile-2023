@@ -47,6 +47,10 @@ dependencies:
   image_picker: ^1.0.4
   fluttertoast:
   shared_preferences:
+  image_gallery_saver: '^2.0.3'
+  path_provider: ^2.0.14
+  dio: ^5.3.3
+  gallery_saver: ^2.0.10
 
 dev_dependencies:
   flutter_test:
