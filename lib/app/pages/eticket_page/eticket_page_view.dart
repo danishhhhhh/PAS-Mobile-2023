@@ -104,7 +104,7 @@ class ETicketPageView extends GetView<ETicketPageController> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: ColorsBase.purpleDarkBase,
-                      onPrimary: Colors.white,
+                      onPrimary: ColorsBase.whiteBase,
                     ),
                     child: const Text("Save Image"),
                     onPressed: () async {
@@ -114,7 +114,7 @@ class ETicketPageView extends GetView<ETicketPageController> {
                         await ImageGallerySaver.saveImage(Uint8List.fromList(bytes));
 
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Wow you already download it!!!')),
+                          const SnackBar(content: Text("Wow, you've already downloaded it!!")),
                         );
                       } catch (e) {
                         print('Error: $e');
