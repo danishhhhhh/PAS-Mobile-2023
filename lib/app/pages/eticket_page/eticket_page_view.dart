@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/common/widget/back_button.dart';
 
-class ETicketPageView extends StatelessWidget {
+class ETicketPageView extends GetView<ETicketPageController> {
   const ETicketPageView({super.key, this.eventName = "No Data"});
 
   final String eventName;
@@ -62,7 +64,7 @@ class ETicketPageView extends StatelessWidget {
                                   color: ColorsBase.purpleLightBase,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Image.asset(
-                                "assets/images/qr.png",
+                                controller.imageURL.value,
                               ),
                               clipBehavior: Clip.hardEdge,
                             ),
@@ -107,7 +109,8 @@ class ETicketPageView extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
+                  ),
+
                 ],
               ),
             ),
