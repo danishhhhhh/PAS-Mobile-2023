@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
+import 'package:pas_mobile/app/pages/checkout_page/widget/price_widget.dart';
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
@@ -176,30 +177,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 30),
-                child: Row(
-                  children: [
-                    Text(
-                      "Total Price",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                        color: ColorsBase.whiteBase,
-                      ),
-                    ),
-                    const Spacer(),
-                    Text(
-                      "\$ ${controller.price()}",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        color: ColorsBase.whiteBase,
-                      ),
-                    ),
-                  ],
-                ),
-              )
+              PriceWidget(),
             ],
           ),
         ),
