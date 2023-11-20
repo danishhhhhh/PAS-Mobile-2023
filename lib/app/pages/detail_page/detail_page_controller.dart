@@ -44,7 +44,7 @@ class DetailPageController extends GetxController {
     try {
       DateTime originalDate = DateTime.parse(date);
       String formattedDate = DateFormat('dd-MM-yyyy').format(originalDate);
-      return formattedDate; // Output: 18-11-2023
+      return formattedDate;
     } catch (e) {
       return "Invalid date format";
     }
@@ -54,7 +54,7 @@ class DetailPageController extends GetxController {
     try {
       DateTime originalTime = DateFormat('HH:mm:ss').parse(time);
       String formattedTime = DateFormat('HH:mm').format(originalTime);
-      return formattedTime; // Output: 18-11-2023
+      return formattedTime;
     } catch (e) {
       return "Invalid time format";
     }

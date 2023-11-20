@@ -141,7 +141,7 @@ class EventCardComponent extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(7),
                 child: Text(
-                  "E-Voucher",
+                  "E-Ticket",
                   style: TextStyle(
                     color: ColorsBase.whiteBase,
                     fontFamily: "Poppins",

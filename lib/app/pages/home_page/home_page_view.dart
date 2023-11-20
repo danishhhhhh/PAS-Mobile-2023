@@ -40,7 +40,7 @@ class HomePageView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50.0),
                         child: (profilePageController.image.value.path == "") ?
                         Image.asset(
-                          "assets/images/dump/6367448e-7474-4650-bd2d-02a8f7166ab4_106161_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                          "assets/images/dump/pfp.jpg",
                           width: 45,
                           height: 45,
                           fit: BoxFit.cover,
