@@ -60,7 +60,7 @@ class CheckoutButtonComponent extends GetView<CheckoutPageController> {
                 margin: EdgeInsets.only(left: 5),
                 padding: EdgeInsets.all(5),
                 child: Text(
-                  "\$${controller.argumentData['eventPrice']}",
+                  "\$${controller.price()}",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w600,

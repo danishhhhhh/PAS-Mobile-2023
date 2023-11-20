@@ -1,10 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
 import 'package:pas_mobile/app/pages/detail_page/widget/info_widget.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
-class BottomContainer extends StatelessWidget {
+class BottomContainer extends GetView<DetailPageController> {
   const BottomContainer(
       {super.key,
       required this.eventName,
@@ -29,7 +29,7 @@ class BottomContainer extends StatelessWidget {
       initialChildSize: 0.65,
       maxChildSize: 1.0,
       minChildSize: 0.65,
-      builder: (context, controller) {
+      builder: (context, scrollController) {
         return Container(
           padding: EdgeInsets.symmetric(horizontal: width * 0.125, vertical: height * 0.05),
           clipBehavior: Clip.hardEdge,
@@ -38,7 +38,7 @@ class BottomContainer extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50), topRight: Radius.circular(50))),
           child: SingleChildScrollView(
-            controller: controller,
+            controller: scrollController,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -98,11 +98,11 @@ class BottomContainer extends StatelessWidget {
                 ),
                 InfoWidget(
                   icon: Icons.calendar_today_outlined,
-                  name: eventDate,
+                  name: controller.formattingDate(eventDate),
                 ),
                 InfoWidget(
                   icon: Icons.access_time_outlined,
-                  name: eventTime,
+                  name: controller.formattingTime(eventTime),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
@@ -123,6 +123,7 @@ class BottomContainer extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: 12),
                 ),
+                SizedBox(height: height * 0.1,)
               ],
             ),
           ),

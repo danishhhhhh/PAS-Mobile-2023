@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 import 'package:pas_mobile/common/widget/back_button.dart';
+import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 
 class ETicketPageView extends GetView<ETicketPageController> {
   const ETicketPageView({super.key, this.eventName = "No Data"});
@@ -69,13 +70,16 @@ class ETicketPageView extends GetView<ETicketPageController> {
                               clipBehavior: Clip.hardEdge,
                             ),
                             SizedBox(height: 10),
-                            Text(
-                              eventName ?? "No Data",
-                              style: TextStyle(
-                                color: ColorsBase.whiteBase,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(
+                                controller.eventName,
+                                style: TextStyle(
+                                  color: ColorsBase.whiteBase,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
                               ),
                             ),
                           ],
@@ -90,6 +94,16 @@ class ETicketPageView extends GetView<ETicketPageController> {
                       Divider(),
                       SizedBox(height: height * 0.05),
                     ],
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: ColorsBase.purpleDarkBase,
+                      onPrimary: Colors.white,
+                    ),
+                    child: const Text("Save Image"),
+                    onPressed: () async {
+                      // String url = "assets/images/qr.png"
+                    },
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +124,6 @@ class ETicketPageView extends GetView<ETicketPageController> {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/checkout_page/checkout_page_controller.dart';
 import 'package:pas_mobile/app/pages/checkout_page/widget/ticket_info.dart';
+import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class TicketComponent extends GetView<CheckoutPageController> {
-  const TicketComponent({super.key});
-  final price = '100';
+  TicketComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w700,
-                          fontSize: width * 0.0625 ,
+                          fontSize: width * 0.0625,
                           color: ColorsBase.whiteBase),
                       softWrap: true,
                       maxLines: 2,
@@ -144,9 +144,11 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   crossAxisSpacing: 30,
                 ),
                 children: [
-                  TicketInfo(
-                    image: 'assets/images/icons/user.svg',
-                    text: "Qwerty",
+                  Obx(
+                    () => TicketInfo(
+                      image: 'assets/images/icons/user.svg',
+                      text: controller.username.value,
+                    ),
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/map_pointer.svg',
@@ -154,11 +156,11 @@ class TicketComponent extends GetView<CheckoutPageController> {
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/calendar.svg',
-                    text: controller.argumentData['eventDate'],
+                    text: controller.formattingDate(controller.argumentData['eventDate']),
                   ),
                   TicketInfo(
                     image: 'assets/images/icons/clock.svg',
-                    text: controller.argumentData['eventTime'],
+                    text: controller.formattingTime(controller.argumentData['eventTime']),
                   ),
                 ],
               ),
@@ -188,7 +190,7 @@ class TicketComponent extends GetView<CheckoutPageController> {
                     ),
                     const Spacer(),
                     Text(
-                      "\$ ${controller.argumentData['eventPrice']}",
+                      "\$ ${controller.price()}",
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
