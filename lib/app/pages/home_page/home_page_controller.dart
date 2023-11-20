@@ -1,14 +1,17 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:pas_mobile/app/models/api_model.dart';
+import 'package:pas_mobile/app/pages/profile_page/profile_page_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePageController extends GetxController {
   Rx<TicketModel> data = TicketModel().obs;
   late final SharedPreferences prefs;
   RxString username = "".obs;
+  Rx<File> imageProfile = File('').obs;
   
   RxBool isLoading = true.obs;
 
