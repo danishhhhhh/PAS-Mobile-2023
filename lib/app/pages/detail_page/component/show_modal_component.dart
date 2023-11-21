@@ -11,9 +11,10 @@ class ShowModalComponent extends GetView<DetailPageController> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Container(
       height: height * 0.2,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(horizontal: width * 0.125),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -34,7 +35,7 @@ class ShowModalComponent extends GetView<DetailPageController> {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 25),
           Container(
             width: double.maxFinite,
             child: ElevatedButton(
@@ -68,6 +69,7 @@ class ShowModalComponent extends GetView<DetailPageController> {
               ),
             ),
           ),
+          SizedBox(height: height * 0.01),
         ],
       ),
     );
