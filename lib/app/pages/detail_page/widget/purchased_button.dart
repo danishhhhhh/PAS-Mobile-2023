@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pas_mobile/app/pages/detail_page/component/show_modal_component.dart';
-import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
-import 'package:pas_mobile/app/pages/detail_page/widget/ticket_counter_widget.dart';
 import 'package:pas_mobile/common/theme/theme.dart';
 
 class PurchasedButton extends StatelessWidget {
