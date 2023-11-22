@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:pas_mobile/app/pages/detail_page/detail_page_controller.dart';
-import 'package:pas_mobile/app/pages/eticket_page/eticket_page_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CheckoutPageController extends GetxController {

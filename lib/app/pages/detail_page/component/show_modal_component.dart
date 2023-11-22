@@ -73,6 +73,5 @@ class ShowModalComponent extends GetView<DetailPageController> {
         ],
       ),
     );
-    ;
   }
 }
